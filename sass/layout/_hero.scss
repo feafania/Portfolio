@@ -1,0 +1,102 @@
+@use "../abstracts" as *;
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: $spacer * 1.5;
+    color: $color-hero;
+    background-color: $color-dark;
+    background-image: url("#{$assets-path}images/hero-cold-geometry-mobile.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease-in-out;
+
+    @include respond-to(sm) {
+        background-image: url("#{$assets-path}images/hero-cold-geometry-desktop.png");
+    }
+
+    @include respond-to(lg) {
+        background-image: url("#{$assets-path}images/hero-cold-geometry-wide.png");
+    }
+
+    @include respond-to(xl) {
+        background-image: url("#{$assets-path}images/hero-cold-geometry-4k.png");
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+                to bottom,
+                rgba($color-dark, 0.55),
+                rgba($color-dark, 0.75)
+        );
+        z-index: 0;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        max-width: 60rem;
+
+        h1 {
+            @extend %heading-shadow;
+            font-size: 1.75rem;
+            line-height: 1.2;
+            color: $color-hero;
+
+            @include respond-to(md) { font-size: 2.5rem; }
+            @include respond-to(lg) { font-size: 3rem; }
+        }
+
+        h2 {
+            @extend %heading-shadow;
+            font-weight: 400;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            color: $color-hero;
+
+            @include respond-to(md) { font-size: 1.35rem; }
+        }
+
+    }
+
+    &__scroll-down {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        font-size: 0.9rem;
+        color: $color-hero;
+        opacity: 0.9;
+    }
+
+    &__arrow {
+        width: 12px;
+        height: 12px;
+        border-right: 2px solid $color-hero;
+        border-bottom: 2px solid $color-hero;
+        transform: rotate(45deg);
+        animation: scroll-bounce 1.4s infinite ease-in-out;
+    }
+}
+
+@keyframes scroll-bounce {
+    0%   { transform: translateY(0) rotate(45deg); }
+    50%  { transform: translateY(6px) rotate(45deg); }
+    100% { transform: translateY(0) rotate(45deg); }
+}
