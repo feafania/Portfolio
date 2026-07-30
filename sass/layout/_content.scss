@@ -1,0 +1,10 @@
+@use "../abstracts" as *;
+
+.content {
+    background-color: $color-side-menu-bg;
+
+    @include respond-to(sm) {
+        margin-left: $side-menu-width;
+    }
+}
+
