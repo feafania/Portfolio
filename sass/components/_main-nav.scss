@@ -1,0 +1,60 @@
+@use "../abstracts" as *;
+
+.main-nav {
+
+    ul li {
+        margin-bottom: 1.5rem;
+    }
+
+    a {
+        font-weight: 600;
+        font-size: 1rem;
+        color: $color-main-nav;
+        padding: 0.25rem 0;
+        display: inline-block;
+        position: relative;
+        transition: color 0.2s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: $color-primary;
+            transition: width 0.25s ease;
+        }
+
+        &:hover {
+            color: $color-primary;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &.active {
+            color: $color-primary;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: rgba($color-primary, 0.85);
+            }
+
+            &::before {
+                top: -4px;
+            }
+
+            &::after {
+                bottom: -4px;
+            }
+
+        }
+    }
+}
