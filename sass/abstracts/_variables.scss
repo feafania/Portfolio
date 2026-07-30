@@ -1,9 +1,45 @@
 /* BREAKPOINTS */
 
-$bps: (
-        xxs: 480px,
+$breakpoints: (
         xs: 0,
-        sm: 768px,
-        md: 992px,
-        lg: 1260px
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
 );
+
+
+// COLOURS
+$color-primary:                 #2f9bd6;
+$color-dark:                    #1b1f27;
+$color-text:                    #333333;
+$color-text-light:              #6b7280;
+$color-bg:                      #ffffff;
+$color-border:                  #e5e7eb;
+
+$color-hero:                    #f3f4f6;
+//$color-side-menu-bg:            #111827;
+//$color-main-nav:                #e5e7eb;
+
+// новыя для меню
+$color-side-menu-bg:   $color-bg;
+$color-main-nav:       $color-dark;
+$color-text-light:     #6b7280;
+
+
+// LAYOUT
+$side-menu-width: 220px;
+
+// TYPOGRAPHY
+$font-main: 'Inter', 'Roboto', Arial, sans-serif;
+$font-size-base: 16px;
+
+// SPACING
+$spacer: 1rem;
+
+// Z-INDEX LAYERS
+$z-side-menu: 100;
+$z-burger: 110;
+
+/* PATHS */
+$assets-path: "../assets/";
