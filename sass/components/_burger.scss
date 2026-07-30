@@ -1,0 +1,69 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+
+.burger {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: $z-burger;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+
+    background-color: rgba($color-dark, 0.6);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    box-shadow: 0 0 12px rgba($color-primary, 0.25);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+
+    @include respond-to(sm) {
+        display: none;
+    }
+
+    &:hover {
+        background-color: rgba($color-dark, 0.75);
+        box-shadow: 0 0 14px rgba($color-primary, 0.35);
+    }
+
+    &:focus-visible {
+        @extend %focus-ring;
+    }
+
+    &__line {
+        position: relative;
+        @extend %burger-line;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            @extend %burger-line;
+        }
+
+        &::before {
+            top: -6px;
+        }
+
+        &::after {
+            top: 6px;
+        }
+    }
+}
+
+.menu-checkbox:checked + .burger .burger__line {
+    background-color: transparent;
+    &::before {
+        transform: rotate(45deg) translate(4px, 4px);
+    }
+    &::after {
+        transform: rotate(-45deg) translate(4px, -4px);
+    }
+
+}
