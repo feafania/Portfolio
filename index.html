@@ -5,80 +5,97 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Tatsiana Kashko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body id="top">
+
+<input type="checkbox" id="menu-toggle" class="menu-checkbox" hidden>
+<label for="menu-toggle" class="burger" aria-label="Toggle menu">
+  <span class="burger__line"></span>
+</label>
 
 <aside class="side-menu">
-  <div class="branding">
-    <a href="index.html" class="logo">F</a>
+  <div class="side-menu__branding">
+    <a href="index.html" class="side-menu__logo" aria-label="Home">TK</a>
   </div>
 
   <nav class="main-nav">
     <ul>
       <li><a href="about.html">About Me</a></li>
-      <li><a href="#portfolio">My Portfolio</a></li>
+      <li><a href="index.html#portfolio">My Portfolio</a></li>
       <li><a href="coding-examples.html">Coding Examples</a></li>
       <li><a href="scs-scheme.html">SCS Scheme</a></li>
-      <li><a href="#contact">Contact Me</a></li>
+      <li><a href="index.html#contact">Contact Me</a></li>
     </ul>
   </nav>
 
   <div class="social-links">
-    <a href="#" aria-label="Telegram">Tl</a>
-    <a href="#" aria-label="Discord">Ds</a>
-    <a href="#" aria-label="Github">Gh</a>
-    <a href="#" aria-label="Codewars">CW</a>
+    <a href="https://www.linkedin.com/in/tatsiana-kashko/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+    </a>
+    <a href="https://github.com/feafania" target="_blank" rel="noopener noreferrer" aria-label="Github">
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.codewars.com/users/feafania" target="_blank" rel="noopener noreferrer" aria-label="Codewars">
+      <i class="fa-solid fa-code" aria-hidden="true"></i>
+    </a>
   </div>
 </aside>
 
 <main class="content">
 
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>My Name is Feofania</h1>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__inner">
+      <h1 id="hero-title">My Name is Tatsiana Kashko</h1>
       <h2>I'm a Web Developer</h2>
-      <p class="scroll-down">Scroll Down</p>
+    </div>
+    <div class="hero__scroll-down">
+      <span>Scroll Down</span>
+      <span class="hero__arrow"></span>
     </div>
   </section>
 
-  <section id="portfolio" class="portfolio">
-    <h2>My Portfolio</h2>
+  <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
+    <h2 id="portfolio-title">My Portfolio</h2>
 
     <div class="portfolio-grid">
       <article class="project-card">
-        <img src="images/placeholder.jpg" alt="Project One">
+        <img src="assets/images/placeholder.jpg" alt="Preview of Project One">
         <h3>Project One</h3>
         <a href="#" class="btn">View Project</a>
       </article>
 
       <article class="project-card">
-        <img src="images/placeholder.jpg" alt="Project Two">
+        <img src="assets/images/placeholder.jpg" alt="Preview of Project Two">
         <h3>Project Two</h3>
         <a href="#" class="btn">View Project</a>
       </article>
 
       <article class="project-card">
-        <img src="images/placeholder.jpg" alt="Project Three">
+        <img src="assets/images/placeholder.jpg" alt="Preview of Project Three">
         <h3>Project Three</h3>
         <a href="#" class="btn">View Project</a>
       </article>
 
       <article class="project-card">
-        <img src="images/placeholder.jpg" alt="Project Four">
+        <img src="assets/images/placeholder.jpg" alt="Preview of Project Four">
         <h3>Project Four</h3>
         <a href="#" class="btn">View Project</a>
       </article>
 
       <article class="project-card">
-        <img src="images/placeholder.jpg" alt="Project Five">
+        <img src="assets/images/placeholder.jpg" alt="Preview of Project Five">
         <h3>Project Five</h3>
         <a href="#" class="btn">View Project</a>
       </article>
 
       <article class="project-card">
-        <img src="images/placeholder.jpg" alt="Project Six">
+        <img src="assets/images/placeholder.jpg" alt="Preview of Project Six">
         <h3>Project Six</h3>
         <a href="#" class="btn">View Project</a>
       </article>
@@ -89,30 +106,30 @@
     <h2>Get In Touch</h2>
 
     <form class="contact-form">
-      <label>
-        First Name*
-        <input type="text" name="first-name" required>
+      <label for="first-name">
+        First Name <span aria-hidden="true">*</span>
       </label>
+      <input id="first-name" type="text" name="first-name" required>
 
-      <label>
-        Last Name*
-        <input type="text" name="last-name" required>
+      <label for="last-name">
+        Last Name <span aria-hidden="true">*</span>
       </label>
+      <input id="last-name" type="text" name="last-name" required>
 
-      <label>
-        Email Address*
-        <input type="email" name="email" required>
+      <label for="email">
+        Email Address <span aria-hidden="true">*</span>
       </label>
+      <input id="email" type="email" name="email" required>
 
-      <label>
+      <label for="subject">
         Subject
-        <input type="text" name="subject">
       </label>
+      <input id="subject" type="text" name="subject">
 
-      <label>
+      <label for="message">
         Message
-        <textarea name="message"></textarea>
       </label>
+      <textarea id="message" name="message" rows="6"></textarea>
 
       <button type="submit" class="btn">Submit</button>
     </form>
