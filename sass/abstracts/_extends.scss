@@ -1,8 +1,6 @@
 @use "variables" as vars;
 @use "functions" as fn;
 
-
-
 // keeps it available to screen readers
 %visually-hidden {
     position: absolute;
@@ -11,7 +9,7 @@
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
     white-space: nowrap;
     border: 0;
 }

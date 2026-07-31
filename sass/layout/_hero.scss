@@ -2,6 +2,7 @@
 
 .hero {
     position: relative;
+    overflow: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,6 +13,7 @@
     color: $color-hero;
     background-color: $color-dark;
     background-image: url("#{$assets-path}images/hero-cold-geometry-mobile.png");
+    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,6 +25,7 @@
 
     @include respond-to(lg) {
         background-image: url("#{$assets-path}images/hero-cold-geometry-wide.png");
+        background-attachment: fixed;
     }
 
     @include respond-to(xl) {
@@ -38,12 +41,12 @@
                 rgba($color-dark, 0.55),
                 rgba($color-dark, 0.75)
         );
-        z-index: 0;
+        z-index: $z-hero-after;
     }
 
     &__inner {
         position: relative;
-        z-index: 1;
+        z-index: $z-hero-inner;
         max-width: 60rem;
 
         h1 {
@@ -73,30 +76,43 @@
         bottom: 2rem;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 2;
+        z-index: $z-scroll;
+
+        opacity: 0;
+        animation:
+                fade-in .8s ease .8s forwards;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
 
+        transition:
+                opacity .25s ease,
+                transform .25s ease,
+                color .25s ease;
+
         font-size: 0.9rem;
         color: $color-hero;
         opacity: 0.9;
-    }
 
-    &__arrow {
-        width: 12px;
-        height: 12px;
-        border-right: 2px solid $color-hero;
-        border-bottom: 2px solid $color-hero;
-        transform: rotate(45deg);
-        animation: scroll-bounce 1.4s infinite ease-in-out;
+        &:hover {
+            color: $color-primary;
+            opacity: 1;
+            transform: translateX(-50%) translateY(4px);
+        }
+
+        &:hover .hero__arrow {
+            border-color: $color-primary;
+            text-shadow: 0 0 10px rgba($color-primary,.45);
+            animation-duration: .5s;
+        }
     }
 }
 
-@keyframes scroll-bounce {
-    0%   { transform: translateY(0) rotate(45deg); }
-    50%  { transform: translateY(6px) rotate(45deg); }
-    100% { transform: translateY(0) rotate(45deg); }
+
+@keyframes fade-in {
+    to {
+        opacity: .9;
+    }
 }

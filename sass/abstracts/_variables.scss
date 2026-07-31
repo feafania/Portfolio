@@ -18,13 +18,10 @@ $color-bg:                      #ffffff;
 $color-border:                  #e5e7eb;
 
 $color-hero:                    #f3f4f6;
-//$color-side-menu-bg:            #111827;
-//$color-main-nav:                #e5e7eb;
 
-// новыя для меню
-$color-side-menu-bg:   $color-bg;
-$color-main-nav:       $color-dark;
-$color-text-light:     #6b7280;
+$color-side-menu-bg:            $color-bg;
+$color-main-nav:                $color-dark;
+$color-text-light:              #6b7280;
 
 
 // LAYOUT
@@ -41,5 +38,15 @@ $spacer: 1rem;
 $z-side-menu: 100;
 $z-burger: 110;
 
+$z-view-project: 2;
+
+$z-hero-after: 0;
+$z-hero-inner: 1;
+$z-scroll: 2;
+
 /* PATHS */
 $assets-path: "../assets/";
+
+/* PROJECT CARDS  */
+
+$card-view-btn: #111111;
