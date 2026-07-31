@@ -1,0 +1,36 @@
+.scroll-arrow {
+    width: 12px;
+    height: 12px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    transition:
+            border-color .25s ease,
+            text-shadow .25s ease,
+            transform .25s ease;
+
+    animation: scroll-arrow-down 1.4s infinite ease-in-out;
+
+    &--down {
+        transform: rotate(45deg);
+        animation-name: scroll-arrow-down;
+    }
+
+    &--up {
+        transform: rotate(-135deg);
+        animation-name: scroll-arrow-up;
+    }
+}
+
+@keyframes scroll-arrow-down {
+    0%   { transform: translateY(0) rotate(45deg); }
+    50%  { transform: translateY(6px) rotate(45deg); }
+    100% { transform: translateY(0) rotate(45deg); }
+}
+
+@keyframes scroll-arrow-up {
+    0%   { transform: translateY(0) rotate(-135deg); }
+    50%  { transform: translateY(-6px) rotate(-135deg); }
+    100% { transform: translateY(0) rotate(-135deg); }
+}
