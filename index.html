@@ -5,11 +5,17 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Tatsiana Kashko</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="assets/icons/site.webmanifest">
 </head>
 
 <body id="top">
@@ -21,7 +27,7 @@
 
 <aside class="side-menu">
   <div class="side-menu__branding">
-    <a href="index.html" class="side-menu__logo" aria-label="Home">TK</a>
+    <a href="index.html" class="side-menu__logo" aria-label="Home">T</a>
   </div>
 
   <nav class="main-nav">
@@ -54,50 +60,66 @@
       <h1 id="hero-title">My Name is Tatsiana Kashko</h1>
       <h2>I'm a Web Developer</h2>
     </div>
-    <div class="hero__scroll-down">
+    <a href="#portfolio" class="hero__scroll-down">
       <span>Scroll Down</span>
-      <span class="hero__arrow"></span>
-    </div>
+      <span class="hero__arrow scroll-arrow scroll-arrow--down" aria-hidden="true"></span>
+    </a>
   </section>
 
-  <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
-    <h2 id="portfolio-title">My Portfolio</h2>
-
-    <div class="portfolio-grid">
+  <section id="portfolio" class="portfolio" aria-label="My Portfolio">
+    <div class="portfolio__grid">
       <article class="project-card">
-        <img src="assets/images/placeholder.jpg" alt="Preview of Project One">
+        <img src="assets/images/placeholder1.png" alt="Preview of Project One">
         <h3>Project One</h3>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="view-project-btn">
+          <span>View Project</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </article>
 
       <article class="project-card">
-        <img src="assets/images/placeholder.jpg" alt="Preview of Project Two">
+        <img src="assets/images/placeholder2.png" alt="Preview of Project Two">
         <h3>Project Two</h3>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="view-project-btn">
+          <span>View Project</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </article>
 
       <article class="project-card">
-        <img src="assets/images/placeholder.jpg" alt="Preview of Project Three">
+        <img src="assets/images/placeholder3.png" alt="Preview of Project Three">
         <h3>Project Three</h3>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="view-project-btn">
+          <span>View Project</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </article>
 
       <article class="project-card">
-        <img src="assets/images/placeholder.jpg" alt="Preview of Project Four">
+        <img src="assets/images/placeholder4.png" alt="Preview of Project Four">
         <h3>Project Four</h3>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="view-project-btn">
+          <span>View Project</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </article>
 
       <article class="project-card">
-        <img src="assets/images/placeholder.jpg" alt="Preview of Project Five">
+        <img src="assets/images/placeholder5.png" alt="Preview of Project Five">
         <h3>Project Five</h3>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="view-project-btn">
+          <span>View Project</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </article>
 
       <article class="project-card">
-        <img src="assets/images/placeholder.jpg" alt="Preview of Project Six">
+        <img src="assets/images/placeholder6.png" alt="Preview of Project Six">
         <h3>Project Six</h3>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="view-project-btn">
+          <span>View Project</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </article>
     </div>
   </section>
@@ -134,7 +156,10 @@
       <button type="submit" class="btn">Submit</button>
     </form>
 
-    <a href="#top" class="back-to-top">Back To Top</a>
+    <a href="#top" class="back-to-top">
+      <span class="back-to-top__arrow  scroll-arrow scroll-arrow--up" aria-hidden="true"></span>
+      <span>Back To Top</span>
+    </a>
   </section>
 
 </main>
