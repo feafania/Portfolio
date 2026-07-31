@@ -1,0 +1,29 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+
+.portfolio {
+    padding: 2rem 0;
+
+    @include respond-to(sm) {
+        padding: 2.5rem 0;
+    }
+
+    @include respond-to(md) {
+        padding: 3rem 0;
+    }
+}
+
+.portfolio__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: start;
+
+    @include respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(xl) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
