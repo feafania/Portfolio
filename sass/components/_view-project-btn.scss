@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+
+.view-project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+
+    padding: .55rem 1.1rem .55rem 0;
+
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1;
+
+    color: $card-view-btn;
+    background-color: transparent;
+
+    transition:
+            color .25s ease,
+            border-color .25s ease,
+            transform .25s ease;
+
+    position: relative;
+    z-index: $z-view-project;
+
+    i {
+        font-size: 1.15em;
+        transition: transform .25s ease;
+    }
+
+    &:hover {
+        color: $color-primary;
+        border-color: $color-primary;
+        transform: translateY(-2px);
+
+        i {
+            transform: translateX(6px);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:focus-visible {
+        @extend %focus-ring;
+    }
+}

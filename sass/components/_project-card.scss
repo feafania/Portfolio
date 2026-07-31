@@ -1,0 +1,86 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+@use "sass:map";
+
+.project-card {
+    background-color: $color-bg;
+    padding: 1.25rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    transition:
+            box-shadow .25s ease,
+            transform .25s ease,
+            border-color .25s ease;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba($color-dark, 0.35);
+        opacity: 0;
+        transition: opacity .35s ease;
+        pointer-events: none;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+
+        transition: transform .35s ease, filter .35s ease;
+    }
+
+    h3 {
+        min-height: 1.4rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: $color-dark;
+        margin: 0;
+    }
+
+
+    @include respond-to(sm) {
+        padding: 1.4rem;
+
+        h3 {
+            font-size: 1.1rem;
+        }
+    }
+
+    @include respond-to(md) {
+        padding: 1.6rem;
+
+        h3 {
+            font-size: 1.15rem;
+        }
+    }
+
+    @include respond-to(lg) {
+        padding: 1.8rem;
+
+        h3 {
+            font-size: 1.2rem;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+
+        &::after {
+            opacity: 1;
+        }
+
+        img {
+            transform: scale(1.03);
+        }
+    }
+
+    &:focus-within {
+        @extend %focus-ring;
+    }
+
+}
