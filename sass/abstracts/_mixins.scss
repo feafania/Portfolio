@@ -80,3 +80,11 @@
         }
     }
 }
+
+@mixin add-padding($paddings) {
+    @each $key, $value in $paddings {
+        @include respond-to($key) {
+            padding: $value;
+        }
+    }
+}

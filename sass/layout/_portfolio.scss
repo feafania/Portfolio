@@ -2,14 +2,17 @@
 @use "../states" as *;
 
 .portfolio {
-    padding: 2rem 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 
     @include respond-to(sm) {
-        padding: 2.5rem 0;
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
     }
 
     @include respond-to(md) {
-        padding: 3rem 0;
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
     }
 }
 
