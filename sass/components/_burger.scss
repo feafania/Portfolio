@@ -20,7 +20,7 @@
     cursor: pointer;
 
     box-shadow: 0 0 12px rgba($color-primary, 0.25);
-    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    transition: background-color $transition-base, box-shadow $transition-base;
 
     @include respond-to(sm) {
         display: none;

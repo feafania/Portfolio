@@ -13,7 +13,7 @@
         padding: 0.25rem 0;
         display: inline-block;
         position: relative;
-        transition: color 0.2s ease;
+        transition: color $transition-base;
 
         &::after {
             content: "";
@@ -23,7 +23,7 @@
             width: 0;
             height: 2px;
             background-color: $color-primary;
-            transition: width 0.25s ease;
+            transition: width $transition-base;
         }
 
         &:hover {

@@ -8,7 +8,7 @@
     justify-content: center;
     gap: .6rem;
 
-    margin: 2rem auto;
+    margin: 0 auto 2rem;
 
     position: relative;
     z-index: $z-scroll;
@@ -18,8 +18,8 @@
     text-decoration: none;
 
     transition:
-            color .25s ease,
-            transform .25s ease;
+            color $transition-base,
+            transform $transition-base;
 
     &:hover {
         color: $color-primary;
@@ -40,3 +40,4 @@
         @extend %focus-ring;
     }
 }
+

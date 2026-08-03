@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .scroll-arrow {
     width: 12px;
     height: 12px;
@@ -6,9 +8,9 @@
     border-bottom: 2px solid currentColor;
 
     transition:
-            border-color .25s ease,
-            text-shadow .25s ease,
-            transform .25s ease;
+            border-color $transition-base,
+            text-shadow $transition-base,
+            transform $transition-base;
 
     animation: scroll-arrow-down 1.4s infinite ease-in-out;
 

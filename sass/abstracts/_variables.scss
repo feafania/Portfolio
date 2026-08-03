@@ -21,7 +21,6 @@ $color-hero:                    #f3f4f6;
 
 $color-side-menu-bg:            $color-bg;
 $color-main-nav:                $color-dark;
-$color-text-light:              #6b7280;
 
 
 // LAYOUT
@@ -50,3 +49,15 @@ $assets-path: "../assets/";
 /* PROJECT CARDS  */
 
 $card-view-btn: #111111;
+
+/* TRANSITION  */
+$transition-base: .25s ease;
+
+/* PORTFOLIO */
+
+$portfolio-paddings: (
+        xs: 1.25rem,
+        sm: 1.4rem,
+        md: 1.6rem,
+        lg: 1.8rem
+);
