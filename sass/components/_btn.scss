@@ -1,0 +1,60 @@
+@use "../abstracts" as *;
+@use "../states" as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+
+    width: 100%;
+    padding: .85rem 1.5rem;
+
+    background: transparent;
+    color: $color-dark;
+
+    border: 1px solid $color-dark;
+    border-radius: .5rem;
+
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition:
+            color $transition-base,
+            border-color $transition-base,
+            background-color $transition-base,
+            transform $transition-base,
+            box-shadow $transition-base;
+
+    @include respond-to(sm) {
+        width: auto;
+    }
+
+    i {
+        font-size: 1.1em;
+        transition: transform $transition-base;
+    }
+
+    &:hover {
+        color: $color-primary;
+        border-color: $color-primary;
+        background-color: rgba($color-primary, .05);
+
+        transform: translateY(-2px);
+        box-shadow: 0 .5rem 1rem rgba($color-primary, .15);
+
+        i {
+            transform: translateX(4px);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:focus-visible {
+        @extend %focus-ring;
+    }
+}
