@@ -1,0 +1,162 @@
+@use "../abstracts" as *;
+
+.contact {
+    @include add-padding($portfolio-paddings);
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+
+        @include respond-to(lg) {
+            flex-direction: row;
+            gap: 3rem;
+            align-items: start;
+        }
+    }
+
+    &__info {
+        flex: 1 1 0;
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: $color-dark;
+            margin-bottom: 1rem;
+
+            @include respond-to(md) {
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            color: $color-text-light;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 2rem 0;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+
+            width: fit-content;
+            padding: .8rem 1rem;
+            border: 1px solid $color-border;
+            border-radius: .5rem;
+
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: $color-dark;
+
+            transition:
+                    border-color $transition-base,
+                    color $transition-base,
+                    box-shadow $transition-base;
+
+            &:hover {
+                color: $color-primary;
+                border-color: $color-primary;
+                box-shadow: 0 0 0 3px rgba($color-primary,.15);
+            }
+
+            i {
+                width: 1.2rem;
+                text-align: center;
+            }
+        }
+    }
+
+    &__form {
+        flex: 1 1 0;
+
+        @include respond-to(lg) {
+            flex: 2 0 0;
+        }
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+
+        @include respond-to(md) {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1.5rem;
+        }
+
+        label[for="first-name"],
+        #first-name {
+            @include respond-to(md) {
+                grid-column: 1 / 2;
+            }
+        }
+
+        label[for="last-name"],
+        #last-name {
+            @include respond-to(md) {
+                grid-column: 2 / 3;
+            }
+        }
+
+        label[for="email"],
+        #email,
+        label[for="subject"],
+        #subject,
+        label[for="message"],
+        #message,
+        > .btn {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            @extend %visually-hidden;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+
+            border: 1px solid $color-border;
+            border-radius: 0.5rem;
+
+            font: inherit;
+            color: $color-text;
+            background-color: $color-bg;
+
+            transition:
+                    border-color $transition-base,
+                    box-shadow $transition-base;
+
+            &::placeholder {
+                color: $color-text-light;
+            }
+
+            &:focus-visible {
+                outline: none;
+                border-color: $color-primary;
+                box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 8rem;
+        }
+
+    }
+
+    &__submit {
+        margin-top: 0.5rem;
+
+        @include respond-to(sm) {
+            justify-self: start;
+        }
+    }
+}
