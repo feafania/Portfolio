@@ -56,8 +56,9 @@ $transition-base: .25s ease;
 /* PORTFOLIO */
 
 $portfolio-paddings: (
-        xs: 1.25rem,
-        sm: 1.4rem,
-        md: 1.6rem,
-        lg: 1.8rem
+        xs: $spacer * 1.25,
+        sm: $spacer * 1.4,
+        md: $spacer * 1.6,
+        lg: $spacer * 1.8
 );
+
