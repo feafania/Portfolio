@@ -6,10 +6,13 @@
 
     &,
     &__section {
-        padding: 2.5rem $spacer;
+        padding-bottom: 2.5rem;
+        padding-right: $spacer;
+        padding-left: $spacer;
 
         @include respond-to(md) {
-            padding: 2.5rem $spacer * 2;
+            padding-right: $spacer*2;
+            padding-left: $spacer*2;
         }
 
         .container {
@@ -30,6 +33,9 @@
     }
 
     padding-top: 5rem;
+    &__section {
+        padding-top: 2.5rem;
+    }
 
     &__section:nth-of-type(even) {
         background: rgba($color-primary, .03);
