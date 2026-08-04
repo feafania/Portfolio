@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .contact {
-    @include add-padding($portfolio-paddings);
+    @include main-padding($portfolio-paddings);
 
     &__inner {
         display: flex;
