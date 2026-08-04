@@ -273,11 +273,6 @@ button {
   line-height: 1.7;
 }
 
-@keyframes fade-in {
-  to {
-    opacity: 0.9;
-  }
-}
 .portfolio {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -313,16 +308,13 @@ button {
 }
 
 .about, .about__section {
-  padding: 2.5rem 1rem;
+  padding-bottom: 2.5rem;
+  padding-inline: 1rem;
 }
 @media (min-width: 768px) {
   .about, .about__section {
-    padding: 2.5rem 2rem;
+    padding-inline: 2rem;
   }
-}
-.about .container, .about__section .container {
-  max-width: 70rem;
-  margin-inline: auto;
 }
 .about h2, .about__section h2 {
   margin-bottom: 1.5rem;
@@ -335,6 +327,9 @@ button {
 }
 .about {
   padding-top: 5rem;
+}
+.about__section {
+  padding-top: 2.5rem;
 }
 .about__section:nth-of-type(even) {
   background: rgba(47, 155, 214, 0.03);
@@ -567,8 +562,76 @@ button {
   }
 }
 
+.container {
+  width: min(70rem, 100%);
+  margin-inline: auto;
+}
+
 footer {
+  border-top: 1px solid rgba(27, 31, 39, 0.08);
+  padding-top: 1.5rem;
   text-align: center;
+}
+
+.coding-examples {
+  background: rgba(47, 155, 214, 0.03);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .coding-examples {
+    padding-inline: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .coding-examples {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+.coding-examples {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fade-in-up 0.6s ease forwards;
+}
+.coding-examples__placeholder {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(27, 31, 39, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+@media (min-width: 768px) {
+  .coding-examples__placeholder {
+    padding: 4rem 2rem;
+  }
+}
+.coding-examples__placeholder:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(27, 31, 39, 0.1);
+}
+.coding-examples i {
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  background: linear-gradient(135deg, #2f9bd6, rgb(110.9036144578, 185.7228915663, 226.5963855422));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.coding-examples h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  letter-spacing: 0.5px;
+}
+.coding-examples p {
+  max-width: 36rem;
+  margin-inline: auto;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #6b7280;
 }
 
 .burger {
@@ -669,7 +732,10 @@ footer {
   width: 100%;
 }
 .main-nav a.active {
+  width: 100%;
   color: #2f9bd6;
+  pointer-events: none;
+  cursor: default;
 }
 .main-nav a.active::before, .main-nav a.active::after {
   content: "";
@@ -829,39 +895,17 @@ footer {
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transition: border-color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
-  animation: scroll-arrow-down 1.4s infinite ease-in-out;
+  animation: arrow-down 1.4s infinite ease-in-out;
 }
 .scroll-arrow--down {
   transform: rotate(45deg);
-  animation-name: scroll-arrow-down;
+  animation-name: arrow-down;
 }
 .scroll-arrow--up {
   transform: rotate(-135deg);
   animation-name: scroll-arrow-up;
 }
 
-@keyframes scroll-arrow-down {
-  0% {
-    transform: translateY(0) rotate(45deg);
-  }
-  50% {
-    transform: translateY(6px) rotate(45deg);
-  }
-  100% {
-    transform: translateY(0) rotate(45deg);
-  }
-}
-@keyframes scroll-arrow-up {
-  0% {
-    transform: translateY(0) rotate(-135deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(-135deg);
-  }
-  100% {
-    transform: translateY(0) rotate(-135deg);
-  }
-}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -900,6 +944,47 @@ footer {
 }
 .btn:active {
   transform: translateY(0);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes arrow-down {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(45deg);
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+}
+@keyframes arrow-up {
+  0% {
+    transform: translateY(0) rotate(-135deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-135deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-135deg);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,69 @@
+@use "../abstracts" as *;
+@use "sass:color";
+
+.coding-examples {
+    background: rgba($color-primary, .03);
+
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    @include page-padding;
+
+    @include respond-to(md) {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fade-in-up .6s ease forwards;
+
+    &__placeholder {
+        max-width: 44rem;
+        margin-inline: auto;
+        padding: 3rem 1.5rem;
+
+        text-align: center;
+
+        background: $color-bg;
+        border-radius: 1rem;
+        box-shadow: 0 6px 24px rgba($color-dark, .06);
+        transition: transform $transition-base, box-shadow $transition-base;
+
+       @include respond-to(md) {
+            padding: 4rem 2rem;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba($color-dark, .1);
+        }
+
+    }
+
+    i {
+        margin-bottom: 1.5rem;
+
+        font-size: 3rem;
+        background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: 15%));
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    h2 {
+        margin-bottom: 1.5rem;
+
+        font-size: 1.75rem;
+        letter-spacing: .5px;
+    }
+
+    p {
+        max-width: 36rem;
+        margin-inline: auto;
+
+        line-height: 1.8;
+
+        font-size: 1.05rem;
+        color: $color-text-light;
+    }
+}
