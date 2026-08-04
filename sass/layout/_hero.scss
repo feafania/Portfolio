@@ -107,6 +107,28 @@
             animation-duration: .5s;
         }
     }
+
+    &--page {
+        min-height: 45vh;
+        background-attachment: scroll;
+
+        .hero__inner {
+            max-width: 48rem;
+
+            h1 {
+                font-size: 2rem;
+
+                @include respond-to(md) {
+                    font-size: 3rem;
+                }
+            }
+
+            p {
+                font-size: 1.15rem;
+                line-height: 1.7;
+            }
+        }
+    }
 }
 
 

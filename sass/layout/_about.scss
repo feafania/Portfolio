@@ -1,0 +1,113 @@
+@use "../abstracts" as *;
+@use "sass:color";
+@use "../states" as *;
+
+.about {
+
+    &,
+    &__section {
+        padding: 2.5rem $spacer;
+
+        @include respond-to(md) {
+            padding: 2.5rem $spacer * 2;
+        }
+
+        .container {
+            max-width: 70rem;
+            margin-inline: auto;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        p {
+            max-width: 50rem;
+            margin: 0 auto 1.5rem;
+            line-height: 1.8;
+        }
+    }
+
+    padding-top: 5rem;
+
+    &__section:nth-of-type(even) {
+        background: rgba($color-primary, .03);
+    }
+
+    &__facts {
+        display: grid;
+        gap: 2rem;
+        margin-top: 3rem;
+
+        @include respond-to(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__section:last-of-type {
+        text-align: center;
+
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.fact-card {
+    padding: 2rem;
+
+    text-align: center;
+
+    background: $color-bg;
+    border-radius: .75rem;
+
+    box-shadow: 0 4px 18px rgba($color-dark, .08);
+
+    transition:
+            transform $transition-base,
+            box-shadow $transition-base;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 24px rgba($color-dark, .12);
+    }
+
+    i {
+        display: block;
+        margin-bottom: 1rem;
+
+        font-size: 2.4rem;
+        color: $color-primary;
+    }
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 0;
+        max-width: none;
+    }
+}
+
+.about__cta {
+    display: inline-block;
+    padding: 1rem 2.25rem;
+    border-radius: .75rem;
+    background: $color-primary;
+    color: $color-bg;
+    font-weight: 600;
+    letter-spacing: .3px;
+    transition: background $transition-base, transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+        background: color.adjust($color-primary, $lightness: -5%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba($color-primary, .25);
+    }
+
+    &:focus-visible {
+        @extend %focus-ring;
+    }
+}
