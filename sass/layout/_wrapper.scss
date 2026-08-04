@@ -1,5 +1,5 @@
 @use "../abstracts/index" as *;
 
 .wrapper {
-    @include add-padding($portfolio-paddings);
+    @include main-padding($portfolio-paddings);
 }

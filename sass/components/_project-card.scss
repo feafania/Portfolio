@@ -30,7 +30,7 @@
                 transform $transition-base,
                 border-color $transition-base;
 
-        @include add-padding($portfolio-paddings);
+        @include main-padding($portfolio-paddings);
     }
 
     &__media {

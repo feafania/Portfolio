@@ -81,10 +81,18 @@
     }
 }
 
-@mixin add-padding($paddings) {
+@mixin main-padding($paddings) {
     @each $key, $value in $paddings {
         @include respond-to($key) {
             padding: $value;
         }
+    }
+}
+
+@mixin page-padding {
+    padding-inline: vars.$spacer;
+
+    @include respond-to(md) {
+        padding-inline: vars.$spacer * 2;
     }
 }
