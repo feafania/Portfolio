@@ -14,9 +14,7 @@
         padding-bottom: 7rem;
     }
 
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fade-in-up .6s ease forwards;
+    @extend %fade-in-up;
 
     &__placeholder {
         max-width: 44rem;

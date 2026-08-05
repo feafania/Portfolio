@@ -115,6 +115,8 @@
         .hero__inner {
             max-width: 48rem;
 
+            @extend %fade-in-up;
+
             h1 {
                 font-size: 2rem;
 

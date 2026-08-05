@@ -25,3 +25,9 @@
 %heading-shadow {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
+
+%fade-in-up {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fade-in-up .6s ease forwards;
+}
