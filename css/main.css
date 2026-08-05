@@ -457,12 +457,43 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  width: fit-content;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0.5rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .contact__details a {
+    width: fit-content;
+  }
+}
+.contact__details a span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.contact__details a {
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
+}
+@media (min-width: 576px) {
+  .contact__details a {
+    padding: 0.8rem 1rem;
+    font-size: 1.05rem;
+  }
+}
+@media (min-width: 992px) {
+  .contact__details a {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 1200px) {
+  .contact__details a {
+    padding: 0.8rem 1rem;
+    font-size: 1.05rem;
+  }
+}
+.contact__details a {
   color: #1b1f27;
   transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -474,6 +505,7 @@ button {
 .contact__details a i {
   width: 1.2rem;
   text-align: center;
+  flex-shrink: 0;
 }
 .contact__form {
   flex: 1 1 0;
