@@ -290,6 +290,10 @@ button {
   opacity: 1;
   transform: translateY(0);
 }
+.hero-subtitle-animate.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
 
 .portfolio {
   padding-top: 0.75rem;

@@ -1,4 +1,5 @@
-let printDelay = 2000;
+const printDelay = 2000;
+const printFade = 600;
 
 export function typeText($el, text, speed, callback) {
   $el.text("");
@@ -21,30 +22,33 @@ export function cycleSubtitle($el, phrases, speed, onFirstPhraseComplete) {
   let index = 0;
 
   function printPhrase() {
-    $el.removeClass("show");
-    $el.text("");
+    $el.removeClass("show").addClass("fade-out");
 
-    const phrase = phrases[index];
-    let i = 0;
+    setTimeout(() => {
+      $el.text("");
+      $el.removeClass("fade-out");
+      const phrase = phrases[index];
+      let i = 0;
 
-    function type() {
-      if (i < phrase.length) {
-        $el.text(phrase.substring(0, i + 1));
-        i++;
-        setTimeout(type, speed);
-      } else {
-        $el.addClass("show");
+      function type() {
+        if (i < phrase.length) {
+          $el.text(phrase.substring(0, i + 1));
+          i++;
+          setTimeout(type, speed);
+        } else {
+          $el.addClass("show");
 
-        if (index === 0 && onFirstPhraseComplete) {
-          onFirstPhraseComplete();
+          if (index === 0 && onFirstPhraseComplete) {
+            onFirstPhraseComplete();
+          }
+
+          index = (index + 1) % phrases.length;
+          setTimeout(printPhrase, printDelay);
         }
-
-        index = (index + 1) % phrases.length;
-        setTimeout(printPhrase, printDelay);
       }
-    }
 
-    type();
+      type();
+    }, printFade);
   }
 
   printPhrase();
