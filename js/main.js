@@ -1,5 +1,8 @@
 import { typeText, cycleSubtitle } from './util/typewriter.js';
 
+const titleSpeed = 60;
+const subtitleSpeed = 80;
+
 $(document).ready(function () {
   initTypingEffect();
 });
@@ -16,9 +19,9 @@ function initTypingEffect() {
 
   $subtitle.text("");
 
-  typeText($title, $title.text(), 60, () => {
+  typeText($title, $title.text(), titleSpeed, () => {
     $subtitle.addClass("hero-subtitle-animate");
-    cycleSubtitle($subtitle, subtitlePhrases, 80, () => {
+    cycleSubtitle($subtitle, subtitlePhrases, subtitleSpeed, () => {
       $(".hero__scroll-down").addClass("show");
     });
   });

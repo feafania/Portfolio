@@ -150,6 +150,28 @@ button {
   opacity: 1;
   transform: translateX(0);
 }
+.menu-checkbox:checked ~ .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(27, 31, 39, 0.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+@media (min-width: 576px) {
+  .menu-overlay {
+    display: none;
+  }
+}
 
 .content {
   background-color: #ffffff;
