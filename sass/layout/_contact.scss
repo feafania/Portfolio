@@ -16,7 +16,13 @@
     }
 
     &__info {
+        margin-top: 50px;
         flex: 1 1 0;
+
+
+        @include respond-to(sm) {
+            margin-top: 0;
+        }
 
         h2 {
             font-size: 1.75rem;

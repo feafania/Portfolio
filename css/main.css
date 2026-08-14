@@ -445,7 +445,13 @@ button {
   }
 }
 .contact__info {
+  margin-top: 50px;
   flex: 1 1 0;
+}
+@media (min-width: 576px) {
+  .contact__info {
+    margin-top: 0;
+  }
 }
 .contact__info h2 {
   font-size: 1.75rem;

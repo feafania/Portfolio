@@ -23,35 +23,3 @@ function initTypingEffect() {
     });
   });
 }
-
-
-
-function initMobileMenu() {
-  // mobile menu logic
-//   Дапоўніць .side-menu CSS:
-//     transform: translateX(-100%);
-//   transition: transform .3s ease;
-// .menu-checkbox:checked ~ .side-menu {
-//     transform: translateX(0);
-//   }
-//
-//
-//   Праверыць 3 сцэнары:
-//
-// //     * mobile → burger → menu opens;
-// * mobile → click navigation link → menu closes;
-// * mobile → burger → Escape → menu closes;
-// * desktop → menu заўсёды адкрыта, burger няма.
-//
-//     І яшчэ: я б не перарабляў твой checkbox-menu цалкам на JS. Твая цяперашняя структура ўжо выкарыстоўвае добры CSS-падыход; JavaScript тут лепш дадаць для інтэрактыўнасці, а не дубляваць тое, што CSS ужо ўмее.
-}
-
-
-function closeMobileMenu(menuToggle) {
-  // close menu
-}
-
-
-function handleEscapeKey(event, menuToggle) {
-  // Escape closes menu
-}
