@@ -245,6 +245,7 @@ button {
   }
 }
 .hero__inner h2 {
+  min-height: 1.5em;
   font-weight: 400;
   font-size: 1.1rem;
   opacity: 0.9;
@@ -305,16 +306,16 @@ button {
 }
 .hero-subtitle-animate {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(10px) translateX(-4px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .hero-subtitle-animate.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateX(0);
 }
 .hero-subtitle-animate.fade-out {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(10px) translateX(-6px);
 }
 
 .portfolio {
