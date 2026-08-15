@@ -571,6 +571,11 @@ button {
     column-gap: 1.5rem;
   }
 }
+.contact__form.is-success {
+  border: 2px solid #198754;
+  padding: 1rem;
+  background: rgba(25, 135, 84, 0.05);
+}
 .contact__form input,
 .contact__form textarea {
   width: 100%;

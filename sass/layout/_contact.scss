@@ -124,6 +124,12 @@
             @extend %visually-hidden;
         }
 
+        &.is-success {
+            border: 2px solid $color-valid;
+            padding: 1rem;
+            background: rgba($color-valid, .05);
+        }
+
         input,
         textarea {
             width: 100%;
@@ -158,6 +164,7 @@
             &.is-valid {
                 border-color: $color-valid;
             }
+
         }
 
         textarea {

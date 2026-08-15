@@ -1,5 +1,5 @@
 import { typeText, cycleSubtitle } from './util/typewriter.js';
-import { initFormValidation } from "./util/form-validation.js";
+import { initFormValidation } from "./modules/form-validation.js";
 
 const titleSpeed = 60;
 const subtitleSpeed = 80;
