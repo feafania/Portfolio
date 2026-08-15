@@ -1,10 +1,12 @@
 import { typeText, cycleSubtitle } from './util/typewriter.js';
+import { initFormValidation } from "./util/form-validation.js";
 
 const titleSpeed = 60;
 const subtitleSpeed = 80;
 
 $(document).ready(function () {
   initTypingEffect();
+  initFormValidation();
 });
 
 function initTypingEffect() {

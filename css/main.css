@@ -571,27 +571,6 @@ button {
     column-gap: 1.5rem;
   }
 }
-@media (min-width: 768px) {
-  .contact__form label[for=first-name],
-  .contact__form #first-name {
-    grid-column: 1/2;
-  }
-}
-@media (min-width: 768px) {
-  .contact__form label[for=last-name],
-  .contact__form #last-name {
-    grid-column: 2/3;
-  }
-}
-.contact__form label[for=email],
-.contact__form #email,
-.contact__form label[for=subject],
-.contact__form #subject,
-.contact__form label[for=message],
-.contact__form #message,
-.contact__form > .btn {
-  grid-column: 1/-1;
-}
 .contact__form input,
 .contact__form textarea {
   width: 100%;
@@ -613,9 +592,31 @@ button {
   border-color: #2f9bd6;
   box-shadow: 0 0 0 3px rgba(47, 155, 214, 0.15);
 }
+.contact__form input.is-invalid,
+.contact__form textarea.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+}
+.contact__form input.is-valid,
+.contact__form textarea.is-valid {
+  border-color: #198754;
+}
 .contact__form textarea {
   resize: vertical;
   min-height: 8rem;
+}
+.contact__form .contact__error {
+  margin-top: -0.25rem;
+  font-size: 0.85rem;
+  color: #dc3545;
+}
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contact__field--full {
+  grid-column: 1/-1;
 }
 .contact__submit {
   margin-top: 0.5rem;

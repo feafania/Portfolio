@@ -185,32 +185,49 @@
         </div>
 
         <form class="contact__form" action="#" method="post">
-          <label for="first-name">
-            First Name <span aria-hidden="true">*</span>
-          </label>
-          <input id="first-name" type="text" name="first-name" placeholder="First name*" required>
+          <div class="contact__field">
+            <label for="first-name">
+              First Name <span aria-hidden="true">*</span>
+            </label>
+            <input id="first-name" type="text" name="first-name" placeholder="First name*" required>
+          </div>
 
-          <label for="last-name">
-            Last Name <span aria-hidden="true">*</span>
-          </label>
-          <input id="last-name" type="text" name="last-name" placeholder="Last name*" required>
+          <div class="contact__field">
+            <label for="last-name">
+              Last Name <span aria-hidden="true">*</span>
+            </label>
+            <input id="last-name" type="text" name="last-name" placeholder="Last name*" required>
+          </div>
 
-          <label for="email">
-            Email Address <span aria-hidden="true">*</span>
-          </label>
-          <input id="email" type="email" name="email" placeholder="Email Address*" required>
+          <div class="contact__field">
+            <label for="email">
+              Email Address <span aria-hidden="true">*</span>
+            </label>
+            <input id="email" type="email" name="email" placeholder="Email Address*" required>
+          </div>
 
-          <label for="subject">
-            Subject
-          </label>
-          <input id="subject" type="text" placeholder="Subject" name="subject">
+          <div class="contact__field">
+            <label for="phone">
+              Phone Number
+            </label>
+            <input id="phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="tel">
+          </div>
 
-          <label for="message">
-            Message
-          </label>
-          <textarea id="message" name="message" placeholder="Message" rows="6"></textarea>
+          <div class="contact__field contact__field--full">
+            <label for="subject">
+              Subject
+            </label>
+            <input id="subject" type="text" placeholder="Subject" name="subject">
+          </div>
 
-          <button type="button" class="contact__submit btn">Submit</button>
+          <div class="contact__field contact__field--full">
+            <label for="message">
+              Message
+            </label>
+            <textarea id="message" name="message" placeholder="Message" rows="6"></textarea>
+          </div>
+
+          <button type="submit" class="contact__submit btn">Submit</button>
         </form>
       </div>
     </section>
