@@ -1,8 +1,4 @@
-$(document).ready(function () {
-  initMobileMenu();
-});
-
-function initMobileMenu() {
+export function initMobileMenu() {
   const $menuToggle = $("#menu-toggle");
   const $burger = $(".burger");
 

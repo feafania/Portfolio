@@ -1,5 +1,7 @@
 import { typeText, cycleSubtitle } from './util/typewriter.js';
 import { initFormValidation } from "./modules/form-validation.js";
+import { initSmoothScroll } from "./modules/smooth-scroll.js";
+import { initMobileMenu } from "./modules/mobile-menu.js";
 
 const titleSpeed = 60;
 const subtitleSpeed = 80;
@@ -7,6 +9,8 @@ const subtitleSpeed = 80;
 $(document).ready(function () {
   initTypingEffect();
   initFormValidation();
+  initSmoothScroll();
+  initMobileMenu();
 });
 
 function initTypingEffect() {
