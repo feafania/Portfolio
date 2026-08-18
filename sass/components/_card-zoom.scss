@@ -28,7 +28,6 @@
         pointer-events: none;
 
         transition: opacity 0.4s ease;
-        z-index: $card-zoom-overlay;
 
         &.is-active {
             opacity: 1;
@@ -84,9 +83,8 @@
 
     &__close {
         position: absolute;
-        top: -40px;
+        top: -20px;
         right: -5px;
-        z-index: 10;
         background: rgba($color-bg, 0.95);
         border: none;
         width: 36px;
@@ -105,7 +103,7 @@
         transform: scale(0.8);
 
         @include respond-to(sm) {
-            top: -40px;
+            top: -30px;
             right: -10px;
             width: 40px;
             height: 40px;
@@ -113,7 +111,6 @@
         }
 
         @include respond-to(md) {
-            top: -30px;
             right: -20px;
             width: 44px;
             height: 44px;
