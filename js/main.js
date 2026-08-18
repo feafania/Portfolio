@@ -114,10 +114,7 @@ function initCardAnimation() {
   });
 
   function updateCardZoomSize() {
-    zoom.style.setProperty(
-      "--viewport-width",
-      `${document.documentElement.clientWidth}px`
-    );
+    zoom.style.width = `${document.documentElement.clientWidth}px`;
   }
 
   window.addEventListener("resize", updateCardZoomSize);
