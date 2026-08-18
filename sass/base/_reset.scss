@@ -19,7 +19,7 @@ body {
     font-weight: 400;
     font-style: normal;
     color: $color-text;
-    line-height: 1.5;
+    line-height: $line-height-base;
     background-color: $color-side-menu-bg;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

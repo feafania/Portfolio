@@ -1,0 +1,304 @@
+@use "../abstracts" as *;
+@use "sass:color";
+
+.card-zoom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--viewport-width);
+    height: 100dvh;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: $card-zoom;
+
+    &.is-active {
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+
+        backdrop-filter: blur(12px);
+        background: rgba($color-zoom-overlay, 0.45);
+        opacity: 0;
+        pointer-events: none;
+
+        transition: opacity 0.4s ease;
+        z-index: $card-zoom-overlay;
+
+        &.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &__container {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        z-index: $card-zoom-container;
+
+        @include respond-to(sm) {
+            padding: 70px 24px 24px;
+        }
+
+        @include respond-to(md) {
+            padding: 80px 32px 32px;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90vw;
+        max-width: 1000px;
+        height: auto;
+        max-height: 90vh;
+        pointer-events: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        @include respond-to(sm) {
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        @include respond-to(md) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 90vw;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: -40px;
+        right: -5px;
+        z-index: 10;
+        background: rgba($color-bg, 0.95);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba($color-shadow, 0.25);
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.8);
+
+        @include respond-to(sm) {
+            top: -40px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.8rem;
+        }
+
+        @include respond-to(md) {
+            top: -30px;
+            right: -20px;
+            width: 44px;
+            height: 44px;
+            font-size: 2rem;
+        }
+
+        @include respond-to(lg) {
+            top: -30px;
+            right: -30px;
+        }
+
+        &.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        &:hover {
+            background: $color-bg;
+            transform: scale(1.05);
+        }
+    }
+
+
+    .project-card--zoomed {
+        width: 100%;
+        max-width: 1100px;
+        height: auto;
+        max-height: 85vh;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba($color-shadow, 0.5);
+        background: $color-bg;
+        pointer-events: auto;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.5s ease;
+        transform: scale(0.9) translateY(20px);
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+
+        &.is-open {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .project-card__inner {
+            padding: 1rem;
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            @include respond-to(sm) {
+                padding: 1.75rem 2rem 2rem;
+                gap: 1rem;
+            }
+
+            @include respond-to(md) {
+                padding: 2rem 2.5rem 2.5rem;
+            }
+        }
+
+        .project-card__media {
+            flex: 0 0 auto;
+            width: 100%;
+            aspect-ratio: 8 / 5;
+            overflow: hidden;
+            border-radius: 8px;
+            background: $color-media-bg;
+            max-height: 70vh;
+            min-height: 150px;
+            order: 2;
+
+            @include respond-to(md) {
+                max-height: 65vh;
+            }
+
+            @include respond-to(lg) {
+                max-height: 60vh;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0.5rem 0 0;
+            flex-shrink: 0;
+
+            @include respond-to(sm) {
+                font-size: 1.3rem;
+            }
+
+            @include respond-to(md) {
+                font-size: 1.6rem;
+            }
+        }
+
+        .view-project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: $color-primary;
+            text-decoration: none;
+            margin-top: 0.5rem;
+            transition: gap $transition-base, color $transition-base;
+
+            @include respond-to(sm) {
+                font-size: 1rem;
+            }
+
+            @include respond-to(md) {
+                font-size: 1.2rem;
+            }
+
+            i {
+                font-size: 0.85rem;
+                transition: transform $transition-base;
+
+                @include respond-to(sm) {
+                    font-size: 0.9rem;
+                }
+            }
+
+            &:hover {
+                color: color.adjust($color-primary, $lightness: 10%);
+
+                i {
+                    transform: translateX(4px);
+                }
+            }
+        }
+
+        @media (max-height: 750px), (orientation: landscape) and (max-height: 600px) {
+            max-height: 80vh;
+            width: 95vw;
+            align-items: stretch;
+            gap: 1rem;
+            padding: 0.5rem;
+
+            .project-card__media {
+                flex: 0 0 45%;
+                height: auto;
+                max-height: 80vh;
+                aspect-ratio: unset;
+                border-radius: 12px 0 0 12px;
+                order: 0;
+            }
+
+            .project-card__inner {
+                flex-direction: row;
+                flex: 1 1 55%;
+                padding: 1.5rem;
+                overflow-y: auto;
+                max-height: 80vh;
+                border-radius: 0 12px 12px 0;
+                background: $color-bg;
+                gap: 0.5rem;
+                width: 100%;
+
+                @include respond-to(sm) {
+                    gap: 1rem;
+                }
+
+                @include respond-to(md) {
+                    gap: 2rem;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        }
+    }
+}
+

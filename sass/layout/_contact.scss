@@ -16,7 +16,13 @@
     }
 
     &__info {
+        margin-top: 50px;
         flex: 1 1 0;
+
+
+        @include respond-to(sm) {
+            margin-top: 0;
+        }
 
         h2 {
             font-size: 1.75rem;
@@ -113,32 +119,15 @@
             column-gap: 1.5rem;
         }
 
-        label[for="first-name"],
-        #first-name {
-            @include respond-to(md) {
-                grid-column: 1 / 2;
-            }
-        }
-
-        label[for="last-name"],
-        #last-name {
-            @include respond-to(md) {
-                grid-column: 2 / 3;
-            }
-        }
-
-        label[for="email"],
-        #email,
-        label[for="subject"],
-        #subject,
-        label[for="message"],
-        #message,
-        > .btn {
-            grid-column: 1 / -1;
-        }
 
         label {
             @extend %visually-hidden;
+        }
+
+        &.is-success {
+            border: 2px solid $color-valid;
+            padding: 1rem;
+            background: rgba($color-valid, .05);
         }
 
         input,
@@ -166,11 +155,40 @@
                 border-color: $color-primary;
                 box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
             }
+
+            &.is-invalid {
+                border-color:$color-error;
+                box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+            }
+
+            &.is-valid {
+                border-color: $color-valid;
+            }
+
         }
 
         textarea {
             resize: vertical;
             min-height: 8rem;
+        }
+
+        .contact__error {
+            margin-top: -0.25rem;
+
+            font-size: 0.85rem;
+            color: $color-error;
+        }
+
+    }
+
+    &__field {
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        &--full {
+            grid-column: 1 / -1;
         }
 
     }

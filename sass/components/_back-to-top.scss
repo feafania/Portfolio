@@ -7,8 +7,9 @@
     align-items: center;
     justify-content: center;
     gap: .6rem;
+    padding-top: 8px;
 
-    margin: 1rem auto 2rem;
+    margin: calc(1rem - 8px) auto 2rem;
 
     position: relative;
     z-index: $z-scroll;
@@ -17,8 +18,7 @@
     font-weight: 600;
     text-decoration: none;
 
-    transition:
-            color $transition-base,
+    transition: color $transition-base,
             transform $transition-base;
 
     &:hover {
@@ -26,11 +26,11 @@
         transform: translateY(-2px);
     }
 
-    .back-to-top__arrow {
+    &__arrow {
         color: $color-dark;
     }
 
-    &:hover .back-to-top__arrow {
+    &:hover &__arrow {
         border-color: $color-primary;
         text-shadow: 0 0 10px rgba($color-primary, .45);
         animation-duration: .5s;

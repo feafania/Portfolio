@@ -1,12 +1,15 @@
 @keyframes fade-in {
+
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateX(-50%) translateY(10px);
     }
 
     to {
         opacity: .9;
+        transform: translateX(-50%) translateY(0);
     }
+
 }
 
 @keyframes fade-in-up {
