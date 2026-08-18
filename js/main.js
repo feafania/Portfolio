@@ -41,6 +41,20 @@ function initCardAnimation() {
   const wrapper = document.querySelector(".card-zoom__wrapper");
   const closeBtn = document.querySelector(".card-zoom__close");
 
+  cards.forEach(card => {
+    const viewBtn = card.querySelector(".view-project-btn");
+    if (viewBtn) {
+      viewBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    }
+
+    card.addEventListener("click", function (e) {
+      if (e.target.closest(".view-project-btn")) return;
+      openCard(card);
+    });
+  });
+
   function openCard(card) {
     document.body.style.overflow = "hidden";
 
@@ -92,10 +106,6 @@ function initCardAnimation() {
     }, 500);
   }
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => openCard(card));
-  });
-
   overlay.addEventListener("click", closeCard);
   closeBtn.addEventListener("click", closeCard);
 
@@ -104,10 +114,7 @@ function initCardAnimation() {
   });
 
   function updateCardZoomSize() {
-    zoom.style.setProperty(
-      "--viewport-width",
-      `${document.documentElement.clientWidth}px`
-    );
+    zoom.style.width = `${document.documentElement.clientWidth}px`;
   }
 
   window.addEventListener("resize", updateCardZoomSize);
