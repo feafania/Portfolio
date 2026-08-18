@@ -1073,6 +1073,287 @@ footer {
   transform: scale(1.03);
 }
 
+.card-zoom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--viewport-width);
+  height: 100dvh;
+  visibility: hidden;
+  pointer-events: none;
+}
+.card-zoom.is-active {
+  visibility: visible;
+  pointer-events: auto;
+}
+.card-zoom__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 90;
+}
+.card-zoom__overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.card-zoom__container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 90;
+}
+@media (min-width: 576px) {
+  .card-zoom__container {
+    padding: 70px 24px 24px;
+  }
+}
+@media (min-width: 768px) {
+  .card-zoom__container {
+    padding: 80px 32px 32px;
+  }
+}
+.card-zoom__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  max-width: 1000px;
+  height: auto;
+  max-height: 90vh;
+  pointer-events: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media (min-width: 576px) {
+  .card-zoom__wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .card-zoom__wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 90vw;
+  }
+}
+.card-zoom__close {
+  position: absolute;
+  top: -40px;
+  right: -5px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+@media (min-width: 576px) {
+  .card-zoom__close {
+    top: -40px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 768px) {
+  .card-zoom__close {
+    top: -30px;
+    right: -20px;
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .card-zoom__close {
+    top: -30px;
+    right: -30px;
+  }
+}
+.card-zoom__close.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.card-zoom__close:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+.card-zoom .project-card--zoomed {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  max-height: 85vh;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+  pointer-events: auto;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  transform: scale(0.9) translateY(20px);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+.card-zoom .project-card--zoomed.is-open {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+.card-zoom .project-card--zoomed .project-card__inner {
+  padding: 1rem;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 576px) {
+  .card-zoom .project-card--zoomed .project-card__inner {
+    padding: 1.75rem 2rem 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .card-zoom .project-card--zoomed .project-card__inner {
+    padding: 2rem 2.5rem 2.5rem;
+  }
+}
+.card-zoom .project-card--zoomed .project-card__media {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 8/5;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f0f0f0;
+  max-height: 70vh;
+  min-height: 150px;
+  order: 2;
+}
+@media (min-width: 768px) {
+  .card-zoom .project-card--zoomed .project-card__media {
+    max-height: 65vh;
+  }
+}
+@media (min-width: 992px) {
+  .card-zoom .project-card--zoomed .project-card__media {
+    max-height: 60vh;
+  }
+}
+.card-zoom .project-card--zoomed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-zoom .project-card--zoomed h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+  flex-shrink: 0;
+}
+@media (min-width: 576px) {
+  .card-zoom .project-card--zoomed h3 {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 768px) {
+  .card-zoom .project-card--zoomed h3 {
+    font-size: 1.6rem;
+  }
+}
+.card-zoom .project-card--zoomed .view-project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2f9bd6;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+@media (min-width: 576px) {
+  .card-zoom .project-card--zoomed .view-project-btn {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .card-zoom .project-card--zoomed .view-project-btn {
+    font-size: 1.2rem;
+  }
+}
+.card-zoom .project-card--zoomed .view-project-btn i {
+  font-size: 0.85rem;
+  transition: transform 0.25s ease;
+}
+@media (min-width: 576px) {
+  .card-zoom .project-card--zoomed .view-project-btn i {
+    font-size: 0.9rem;
+  }
+}
+.card-zoom .project-card--zoomed .view-project-btn:hover {
+  color: rgb(89.6024096386, 175.4819277108, 222.3975903614);
+}
+.card-zoom .project-card--zoomed .view-project-btn:hover i {
+  transform: translateX(4px);
+}
+@media (max-height: 750px), (orientation: landscape) and (max-height: 600px) {
+  .card-zoom .project-card--zoomed {
+    max-height: 80vh;
+    width: 95vw;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  .card-zoom .project-card--zoomed .project-card__media {
+    flex: 0 0 45%;
+    height: auto;
+    max-height: 80vh;
+    aspect-ratio: unset;
+    border-radius: 12px 0 0 12px;
+    order: 0;
+  }
+  .card-zoom .project-card--zoomed .project-card__inner {
+    flex-direction: row;
+    flex: 1 1 55%;
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: 80vh;
+    border-radius: 0 12px 12px 0;
+    background: #ffffff;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .card-zoom .project-card--zoomed img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
 .back-to-top {
   display: inline-flex;
   flex-direction: column;

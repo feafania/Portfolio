@@ -26,6 +26,10 @@ $color-total-score:             #45b2f0;
 $color-error:                   #dc3545;
 $color-valid:                   #198754;
 
+$color-zoom-overlay:            #000;
+$color-shadow:                  #000;
+$color-media-bg:                #f0f0f0;
+
 
 // LAYOUT
 $side-menu-width: 220px;
@@ -48,6 +52,9 @@ $z-view-project: 2;
 $z-hero-after: 0;
 $z-hero-inner: 1;
 $z-scroll: 2;
+
+$card-zoom-overlay: 90;
+$card-zoom-container: 90;
 
 /* PATHS */
 $assets-path: "../assets/";
