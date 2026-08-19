@@ -1,25 +1,24 @@
 @use "../abstracts" as *;
-@use "sass:color";
 
 .coding-examples {
-    background: rgba($color-primary, .03);
+    &__intro {
+        max-width: 44rem;
+        margin: 0 auto 2.5rem;
+        text-align: center;
 
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: $color-dark;
+            margin-bottom: .75rem;
+        }
 
-    @include page-padding;
-
-    @include respond-to(md) {
-        padding-top: 7rem;
-        padding-bottom: 7rem;
     }
-
-    @extend %fade-in-up;
 
     &__placeholder {
         max-width: 44rem;
         margin-inline: auto;
-        padding: 3rem 1.5rem;
+        padding: 1.5rem;
 
         text-align: center;
 
@@ -28,8 +27,8 @@
         box-shadow: 0 6px 24px rgba($color-dark, .06);
         transition: transform $transition-base, box-shadow $transition-base;
 
-       @include respond-to(md) {
-            padding: 4rem 2rem;
+        @include respond-to(md) {
+            padding: 2rem;
         }
 
         &:hover {
@@ -38,30 +37,92 @@
         }
 
     }
+}
 
-    i {
-        margin-bottom: 1.5rem;
-
-        font-size: 3rem;
-        background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: 15%));
-        -webkit-background-clip: text;
-        color: transparent;
-    }
-
-    h2 {
-        margin-bottom: 1.5rem;
-
-        font-size: 1.75rem;
-        letter-spacing: .5px;
-    }
+.code-example {
 
     p {
-        max-width: 36rem;
-        margin-inline: auto;
+        text-align: center;
+        color: $color-text-light;
+        line-height: 1.7;
+    }
 
-        line-height: 1.8;
+    &__code {
+        max-width: 44rem;
+        margin: 0 auto 3rem;
 
-        font-size: 1.05rem;
+        border-radius: .75rem;
+        overflow: hidden;
+        box-shadow: 0 6px 24px rgba($color-dark, .08);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: .75rem 1.25rem;
+
+        background-color: $color-dark;
+        color: rgba($color-coding, .85);
+        font-size: .85rem;
+        font-weight: 600;
+    }
+
+    &__filename {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    &__copy {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+
+        background: none;
+        border: 1px solid rgba($color-coding, .25);
+        border-radius: .375rem;
+        padding: .3rem .6rem;
+
+        color: rgba($color-coding, .75);
+        font: inherit;
+        font-size: .8rem;
+        cursor: pointer;
+
+        transition: border-color $transition-base, color $transition-base;
+
+        &:hover {
+            color: $color-coding;
+            border-color: $color-primary;
+        }
+
+        &.is-copied {
+            color: $color-valid;
+            border-color: $color-valid;
+        }
+    }
+
+    &__body {
+        margin: 0;
+        padding: 1.5rem;
+        overflow-x: auto;
+        font-size: .85rem;
+        line-height: 1.6;
+
+        code {
+            font-family: 'SFMono-Regular', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+        }
+    }
+
+    &__noscript {
+        padding: .75rem 1.25rem;
+
+        background-color: rgba($color-primary, .06);
+        border-top: 1px solid $color-border;
+
+        font-size: .85rem;
         color: $color-text-light;
     }
+
 }
