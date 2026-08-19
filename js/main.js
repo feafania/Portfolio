@@ -2,7 +2,7 @@ import { typeText, cycleSubtitle } from './util/typewriter.js';
 import { initFormValidation } from "./modules/form-validation.js";
 import { initSmoothScroll } from "./modules/smooth-scroll.js";
 import { initMobileMenu } from "./modules/mobile-menu.js";
-import { initCardAnimation } from "./modules/card-animatian";
+import { initCardAnimation } from "./modules/card-animatian.js";
 
 const titleSpeed = 60;
 const subtitleSpeed = 80;
