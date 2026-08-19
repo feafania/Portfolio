@@ -11,7 +11,6 @@ export function initCodeHighlight() {
     const $code = $example.find("code");
 
     if (!$header.length || !$code.length) return;
-
     if (!navigator.clipboard) return;
 
     const $btn = $(`
@@ -22,19 +21,22 @@ export function initCodeHighlight() {
     `);
 
     $btn.on("click", function () {
-      navigator.clipboard.writeText($code.text()).then(() => {
-        $btn.addClass("is-copied");
+      navigator.clipboard.writeText($code.text())
+        .then(function () {
+          const $label = $btn.find("span");
+          const original = $label.text();
 
-        const $label = $btn.find("span");
-        const original = $label.text();
+          $btn.addClass("is-copied");
+          $label.text("Copied!");
 
-        $label.text("Copied!");
-
-        setTimeout(() => {
-          $btn.removeClass("is-copied");
-          $label.text(original);
-        }, 1500);
-      });
+          setTimeout(function () {
+            $btn.removeClass("is-copied");
+            $label.text(original);
+          }, 1500);
+        })
+        .catch(function () {
+          console.error("Failed to copy code.");
+        });
     });
 
     $header.append($btn);
