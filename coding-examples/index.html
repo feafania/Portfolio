@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+
   <link rel="stylesheet" href="../css/main.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
@@ -90,17 +94,69 @@
   </section>
 
   <section class="coding-examples">
-    <div class="container">
+    <div class="wrapper">
+
+      <div class="coding-examples__intro">
+        <h2>Coding Examples</h2>
+      </div>
+
+      <article class="code-example">
+        <p>
+        A small module from this site's mobile navigation — handling menu
+        close on link click, the Escape key, and keyboard access for the
+        burger button.
+       </p>
+
+        <div class="code-example__code">
+          <header class="code-example__header">
+            <span class="code-example__filename">
+              <i class="fa-solid fa-file-code" aria-hidden="true"></i>
+              mobile-menu.js
+            </span>
+          </header>
+
+          <pre class="code-example__body"><code class="language-javascript">export function initMobileMenu() {
+  const $menuToggle = $("#menu-toggle");
+  const $burger = $(".burger");
+
+  $(".main-nav a").on("click", function () {
+    closeMobileMenu($menuToggle);
+  });
+
+  $(document).on("keydown", function (event) {
+    handleEscapeKey(event, $menuToggle);
+  });
+
+  $burger.on("keydown", function (event) {
+    if (event.key === " " || event.key === "Enter") {
+      event.preventDefault();
+      $burger.trigger("click");
+    }
+  });
+}
+
+function closeMobileMenu($menuToggle) {
+  $menuToggle.prop("checked", false);
+}
+
+function handleEscapeKey(event, $menuToggle) {
+  if (event.key === "Escape" && $menuToggle.prop("checked")) {
+    closeMobileMenu($menuToggle);
+  }
+}</code></pre>
+
+          <noscript>
+            <p class="code-example__noscript">
+              JavaScript is disabled — select the code above and copy it manually (Ctrl/Cmd + C).
+            </p>
+          </noscript>
+        </div>
+      </article>
 
       <div class="coding-examples__placeholder">
         <i class="fa-solid fa-code" aria-hidden="true"></i>
-
-        <h2>Coming Soon</h2>
-
-        <p>
-          This section will be expanded as I progress through the course.
-        </p>
-
+        <h2>More Coming Soon</h2>
+        <p>This section will be expanded as I progress through the course.</p>
       </div>
 
     </div>
