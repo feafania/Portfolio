@@ -22,9 +22,12 @@ export function initSmoothScroll() {
 
     $("html, body").stop().animate(
       {
-        scrollTop: $target.offset().top
+        scrollTop: $target.offset().top,
       },
-      600
+      {
+        duration: 600,
+        easing: "linear",
+      }
     );
   });
 }

@@ -154,6 +154,7 @@ button {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
 }
 
 .menu-overlay {
