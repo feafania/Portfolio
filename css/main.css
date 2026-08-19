@@ -33,7 +33,7 @@
   animation: fade-in-up 0.6s ease forwards;
 }
 
-.btn:focus-visible, .back-to-top:focus-visible, .view-project-btn:focus-visible, .burger:focus-visible, .scs-card__link:focus-visible, .about__cta:focus-visible, a:focus-visible, button:focus-visible {
+.btn:focus-visible, .back-to-top:focus-visible, .view-project-btn:focus-visible, .burger:focus-visible, .scs-card__link:focus-visible, .about__cta:focus-visible, .side-menu__branding a:focus-visible, a:focus-visible, button:focus-visible {
   outline: 2px solid #2f9bd6;
   outline-offset: 4px;
 }
@@ -138,6 +138,11 @@ button {
   color: #2f9bd6;
   letter-spacing: 1px;
   text-shadow: 0 0 8px rgba(47, 155, 214, 0.35);
+  transition: text-shadow 0.25s ease, transform 0.25s ease;
+}
+.side-menu__branding a:hover {
+  text-shadow: 0 0 14px rgba(47, 155, 214, 0.55);
+  transform: scale(1.05);
 }
 @media (min-width: 576px) {
   .side-menu__branding a {
