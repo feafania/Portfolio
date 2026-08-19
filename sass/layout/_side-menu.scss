@@ -65,6 +65,7 @@
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
+            transition: $overlay-transition-open;
         }
     }
 }
@@ -81,9 +82,7 @@
     visibility: hidden;
     pointer-events: none;
 
-    transition:
-            opacity 0.3s ease,
-            visibility 0s linear .3s;
+    transition: $overlay-transition;
 
     @include respond-to(sm) {
         display: none;

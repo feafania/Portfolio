@@ -66,6 +66,9 @@ $card-view-btn: #111111;
 
 /* TRANSITION  */
 $transition-base: .25s ease;
+$overlay-transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+
+$overlay-transition-open: opacity 0.3s ease, visibility 0s linear 0s;
 
 /* PORTFOLIO */
 
