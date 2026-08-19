@@ -35,88 +35,74 @@ function initTypingEffect() {
 }
 
 function initCardAnimation() {
-  const cards = document.querySelectorAll(".project-card");
-  const zoom = document.querySelector(".card-zoom");
-  const overlay = document.querySelector(".card-zoom__overlay");
-  const wrapper = document.querySelector(".card-zoom__wrapper");
-  const closeBtn = document.querySelector(".card-zoom__close");
+  const $cards = $(".project-card");
+  const $zoom = $(".card-zoom");
+  const $overlay = $(".card-zoom__overlay");
+  const $wrapper = $(".card-zoom__wrapper");
+  const $closeBtn = $(".card-zoom__close");
 
-  cards.forEach(card => {
-    const viewBtn = card.querySelector(".view-project-btn");
-    if (viewBtn) {
-      viewBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-      });
+  $cards.on("click", function (e) {
+    if ($(e.target).closest(".view-project-btn").length) {
+      return;
     }
-
-    card.addEventListener("click", function (e) {
-      if (e.target.closest(".view-project-btn")) return;
-      openCard(card);
-    });
+    openCard($(this));
   });
 
-  function openCard(card) {
-    document.body.style.overflow = "hidden";
+  $(".view-project-btn").on("click", function (e) {
+    e.stopPropagation();
+  });
 
-    const clone = card.cloneNode(true);
-    clone.className = "project-card--zoomed";
+  function openCard($card) {
+    $("body").css("overflow", "hidden");
+    $wrapper.find(".project-card--zoomed").remove();
 
-    const viewBtn = clone.querySelector(".view-project-btn");
-    if (viewBtn) {
-      viewBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        closeCard();
-      });
-    }
+    const $clone = $card.clone();
+    $clone.addClass("project-card--zoomed");
 
-    const existingClone = wrapper.querySelector(".project-card--zoomed");
-    if (existingClone) {
-      existingClone.remove();
-    }
+    $clone.find(".view-project-btn").on("click", function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      closeCard();
+    });
 
-    wrapper.appendChild(clone);
-
-    zoom.classList.add("is-active");
-    overlay.classList.add("is-active");
-    closeBtn.classList.add("is-active");
+    $wrapper.append($clone);
+    $zoom.addClass("is-active");
+    $overlay.addClass("is-active");
+    $closeBtn.addClass("is-active");
 
     requestAnimationFrame(() => {
-      clone.classList.add("is-open");
+      $clone.addClass("is-open");
     });
   }
 
   function closeCard() {
-    const clone = wrapper.querySelector(".project-card--zoomed");
-    if (clone) {
-      clone.classList.remove("is-open");
-    }
+    const $clone = $wrapper.find(".project-card--zoomed");
+    $clone.removeClass("is-open");
+    $zoom.removeClass("is-active");
+    $overlay.removeClass("is-active");
+    $closeBtn.removeClass("is-active");
 
-    zoom.classList.remove("is-active");
-    overlay.classList.remove("is-active");
-    closeBtn.classList.remove("is-active");
-
-    document.body.style.overflow = "";
+    $("body").css("overflow", "");
 
     setTimeout(() => {
-      const cloneToRemove = wrapper.querySelector(".project-card--zoomed");
-      if (cloneToRemove) {
-        cloneToRemove.remove();
-      }
+      $wrapper.find(".project-card--zoomed").remove();
     }, 500);
+
   }
 
-  overlay.addEventListener("click", closeCard);
-  closeBtn.addEventListener("click", closeCard);
+  $overlay.on("click", closeCard);
+  $closeBtn.on("click", closeCard);
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeCard();
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeCard();
+    }
   });
 
   function updateCardZoomSize() {
-    zoom.style.width = `${document.documentElement.clientWidth}px`;
+    $zoom.css("width", `${$(document.documentElement).width()}px`);
   }
 
-  window.addEventListener("resize", updateCardZoomSize);
+  $(window).on("resize", updateCardZoomSize);
   updateCardZoomSize();
 }
