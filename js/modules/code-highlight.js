@@ -12,6 +12,8 @@ export function initCodeHighlight() {
 
     if (!$header.length || !$code.length) return;
 
+    if (!navigator.clipboard) return;
+
     const $btn = $(`
       <button type="button" class="code-example__copy">
         <i class="fa-regular fa-copy" aria-hidden="true"></i>
