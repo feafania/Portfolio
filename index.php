@@ -1,5 +1,6 @@
 <?php
   require_once __DIR__ . '/config/bootstrap.php';
+  $projects = require __DIR__ . '/config/projects.php';
   $page = 'home';
    /** @var array $routes */
 ?>
@@ -44,97 +45,44 @@
 
   <div class="wrapper">
     <section id="portfolio" class="portfolio" aria-label="My Portfolio">
-      <div class="portfolio__grid">
-        <article class="project-card">
-          <div class="project-card__inner">
-            <div class="project-card__media">
-              <img src="assets/images/placeholder1.png" alt="Preview of Project One">
-            </div>
-            <div class="project-card__content">
-              <h3>Project One</h3>
-              <a href="#" class="view-project-btn">
-                <span>View Project</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
+     <div class="portfolio__grid">
+       <?php foreach ($projects as $project):
+           $external = !empty($project['external']);
+       ?>
+         <article class="project-card" <?= $external ? 'data-external="true"' : '' ?>>
+           <div class="project-card__inner">
+             <div class="project-card__media">
+               <img src="<?= htmlspecialchars($project['image']) ?>"
+                    alt="<?= htmlspecialchars($project['alt'] ?? $project['title']) ?>">
+             </div>
+             <div class="project-card__content">
+               <h3><?= htmlspecialchars($project['title']) ?></h3>
 
-        <article class="project-card">
-          <div class="project-card__inner">
-            <div class="project-card__media">
-              <img src="assets/images/placeholder2.png" alt="Preview of Project Two">
-            </div>
-            <div class="project-card__content">
-              <h3>Project Two</h3>
-              <a href="#" class="view-project-btn">
-                <span>View Project</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
+               <?php if (!empty($project['description'])): ?>
+                 <p class="project-card__description">
+                   <?= htmlspecialchars($project['description']) ?>
+                 </p>
+               <?php endif; ?>
 
-        <article class="project-card">
-          <div class="project-card__inner">
-            <div class="project-card__media">
-              <img src="assets/images/placeholder3.png" alt="Preview of Project Three">
-            </div>
-            <div class="project-card__content">
-              <h3>Project Three</h3>
-              <a href="#" class="view-project-btn">
-                <span>View Project</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
+               <?php if (!empty($project['tech'])): ?>
+                 <ul class="project-card__tech">
+                   <?php foreach ($project['tech'] as $tech): ?>
+                     <li><?= htmlspecialchars($tech) ?></li>
+                   <?php endforeach; ?>
+                 </ul>
+               <?php endif; ?>
 
-        <article class="project-card">
-          <div class="project-card__inner">
-            <div class="project-card__media">
-              <img src="assets/images/placeholder4.png" alt="Preview of Project Four">
-            </div>
-            <div class="project-card__content">
-              <h3>Project Four</h3>
-              <a href="#" class="view-project-btn">
-                <span>View Project</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card__inner">
-            <div class="project-card__media">
-              <img src="assets/images/placeholder5.png" alt="Preview of Project Five">
-            </div>
-            <div class="project-card__content">
-              <h3>Project Five</h3>
-              <a href="#" class="view-project-btn">
-                <span>View Project</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card__inner">
-            <div class="project-card__media">
-              <img src="assets/images/placeholder6.png" alt="Preview of Project Six">
-            </div>
-            <div class="project-card__content">
-              <h3>Project Six</h3>
-              <a href="#" class="view-project-btn">
-                <span>View Project</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
+               <a href="<?= htmlspecialchars($project['url'] ?? '#') ?>"
+                  class="view-project-btn"
+                  <?= $external ? 'target="_blank" rel="noopener noreferrer"' : '' ?>>
+                 <span>View Project</span>
+                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+               </a>
+             </div>
+           </div>
+         </article>
+       <?php endforeach; ?>
+     </div>
     </section>
 
     <section id="contact" class="contact">

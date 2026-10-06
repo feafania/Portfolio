@@ -25,7 +25,11 @@ export function initCardAnimation() {
 
     $clone.find(".view-project-btn").on("click", function (e) {
       e.stopPropagation();
-      e.preventDefault();
+
+      if (!$card.data("external")) {
+        e.preventDefault();
+      }
+
       closeCard();
     });
 
