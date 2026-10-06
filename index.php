@@ -1,8 +1,7 @@
 <?php
   require_once __DIR__ . '/config/bootstrap.php';
-  require_once __DIR__ . '/config/database.php';
-
   $page = 'home';
+   /** @var array $routes */
 ?>
 
 <!doctype html>
@@ -11,6 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tatsiana Kashko – web developer portfolio featuring projects, coding examples, experience and information about my work.">
   <title>Portfolio – Tatsiana Kashko</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,7 +162,18 @@
           </div>
         </div>
 
-        <form class="contact__form" action="#" method="post">
+        <form class="contact__form"
+              action="<?= $routes['contact_submit'] ?>"
+              method="post"
+              novalidate>
+
+          <div class="contact__status" role="status" aria-live="polite" hidden></div>
+
+          <div class="contact__hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="contact__field">
             <label for="first-name">
               First Name <span aria-hidden="true">*</span>

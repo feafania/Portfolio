@@ -582,6 +582,31 @@ button {
   padding: 1rem;
   background: rgba(25, 135, 84, 0.05);
 }
+.contact__form.is-success > .contact__field,
+.contact__form.is-success > .contact__submit {
+  display: none;
+}
+.contact__form .contact__status {
+  grid-column: 1/-1;
+  padding: 0.9rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.contact__form .contact__status[hidden] {
+  display: none;
+}
+.contact__form .contact__status--success {
+  color: #198754;
+  background: rgba(25, 135, 84, 0.08);
+  border-color: #198754;
+}
+.contact__form .contact__status--error {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.08);
+  border-color: #dc3545;
+}
 .contact__form input,
 .contact__form textarea {
   width: 100%;
@@ -628,6 +653,13 @@ button {
 }
 .contact__field--full {
   grid-column: 1/-1;
+}
+.contact__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 .contact__submit {
   margin-top: 0.5rem;
