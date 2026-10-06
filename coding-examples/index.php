@@ -1,3 +1,7 @@
+<?php
+  require_once __DIR__ . '/../config/bootstrap.php';
+  $page = 'coding';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,70 +27,11 @@
 
 <body id="top">
 
-<input type="checkbox" id="menu-toggle" class="menu-checkbox" hidden>
-
-<label for="menu-toggle"
-       class="burger"
-       tabindex="0">
-  <span class="burger__line"></span>
-</label>
-
-<label for="menu-toggle" class="menu-overlay"></label>
-
-<aside class="side-menu">
-
-  <div class="side-menu__branding">
-    <a href="../"
-       class="side-menu__logo"
-       aria-label="Home">TK</a>
-  </div>
-
-  <nav class="main-nav">
-    <ul>
-      <li><a href="../about/">About Me</a></li>
-      <li><a href="../#portfolio">My Portfolio</a></li>
-      <li><a href="./" aria-current="page" class="active">Coding Examples</a></li>
-      <li><a href="../scs-scheme/">SCS Scheme</a></li>
-      <li><a href="../#contact">Contact Me</a></li>
-    </ul>
-  </nav>
-
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/tatsiana-kashko/"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="LinkedIn">
-      <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-    </a>
-
-    <a href="https://github.com/feafania"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="GitHub">
-      <i class="fa-brands fa-github" aria-hidden="true"></i>
-    </a>
-
-    <a href="https://www.codewars.com/users/feafania"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Codewars">
-      <i class="fa-solid fa-code" aria-hidden="true"></i>
-    </a>
-  </div>
-
-</aside>
+<?php require __DIR__ . '/../includes/menu.php'; ?>
 
 <main class="content">
 
-  <section class="hero hero--page" aria-labelledby="coding-title">
-    <div class="hero__inner">
-      <h1 id="coding-title">Coding Examples</h1>
-      <p>
-        Examples of my coding work and programming exercises completed during
-        my learning journey.
-      </p>
-    </div>
-  </section>
+  <?php require __DIR__ . '/../includes/page-hero.php'; ?>
 
   <section class="coding-examples">
     <div class="wrapper">
@@ -157,12 +102,7 @@ function handleEscapeKey(event, $menuToggle) {
     </div>
   </section>
 
-  <footer class="footer">
-    <a href="#top" class="back-to-top">
-      <span class="back-to-top__arrow scroll-arrow scroll-arrow--up" aria-hidden="true"></span>
-      <span>Back To Top</span>
-    </a>
-  </footer>
+  <?php require __DIR__ . '/../includes/footer.php'; ?>
 
 </main>
 
