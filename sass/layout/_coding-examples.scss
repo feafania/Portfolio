@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
 .coding-examples {
+
     &__intro {
         max-width: 44rem;
         margin: 0 auto 2.5rem;
@@ -40,6 +41,21 @@
 }
 
 .code-example {
+    margin-bottom: 3rem;
+
+    h3 {
+        max-width: 44rem;
+        margin: 0 auto 1rem;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: $color-dark;
+
+        @include respond-to(md) {
+            font-size: 1.45rem;
+        }
+    }
+
 
     p {
         text-align: center;
@@ -49,7 +65,7 @@
 
     &__code {
         max-width: 44rem;
-        margin: 0 auto 3rem;
+        margin: 0 auto 1.5rem;
 
         border-radius: .75rem;
         overflow: hidden;
@@ -112,6 +128,35 @@
 
         code {
             font-family: 'SFMono-Regular', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
+        }
+    }
+
+    &__details {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 1.25rem 1.5rem;
+
+        background: $color-bg;
+        border: 1px solid $color-border;
+        border-radius: .75rem;
+
+        dt {
+            margin-top: 1rem;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: $color-primary;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        dd {
+            margin: .25rem 0 0;
+            color: $color-text-light;
+            line-height: 1.7;
         }
     }
 

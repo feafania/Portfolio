@@ -1,5 +1,6 @@
 <?php
   require_once __DIR__ . '/../config/bootstrap.php';
+  $examples = require __DIR__ . '/../config/code-examples.php';
   $page = 'coding';
 ?>
 <!doctype html>
@@ -41,58 +42,37 @@
         <h2>Coding Examples</h2>
       </div>
 
-      <article class="code-example">
-        <p>
-        A small module from this site's mobile navigation — handling menu
-        close on link click, the Escape key, and keyboard access for the
-        burger button.
-       </p>
+     <?php foreach ($examples as $ex): ?>
+       <article class="code-example">
+         <h3><?= htmlspecialchars($ex['title']) ?></h3>
 
-        <div class="code-example__code">
-          <header class="code-example__header">
-            <span class="code-example__filename">
-              <i class="fa-solid fa-file-code" aria-hidden="true"></i>
-              mobile-menu.js
-            </span>
-          </header>
+         <div class="code-example__code">
+           <header class="code-example__header">
+             <span class="code-example__filename">
+               <i class="fa-solid fa-file-code" aria-hidden="true"></i>
+               <?= htmlspecialchars($ex['filename']) ?>
+             </span>
+           </header>
 
-          <pre class="code-example__body"><code class="language-javascript">export function initMobileMenu() {
-  const $menuToggle = $("#menu-toggle");
-  const $burger = $(".burger");
+           <pre class="code-example__body"><code class="language-<?= htmlspecialchars($ex['language']) ?>"><?= htmlspecialchars($ex['code']) ?></code></pre>
 
-  $(".main-nav a").on("click", function () {
-    closeMobileMenu($menuToggle);
-  });
+           <noscript>
+             <p class="code-example__noscript">
+               JavaScript is disabled — select the code above and copy it manually (Ctrl/Cmd + C).
+             </p>
+           </noscript>
+         </div>
 
-  $(document).on("keydown", function (event) {
-    handleEscapeKey(event, $menuToggle);
-  });
-
-  $burger.on("keydown", function (event) {
-    if (event.key === " " || event.key === "Enter") {
-      event.preventDefault();
-      $burger.trigger("click");
-    }
-  });
-}
-
-function closeMobileMenu($menuToggle) {
-  $menuToggle.prop("checked", false);
-}
-
-function handleEscapeKey(event, $menuToggle) {
-  if (event.key === "Escape" && $menuToggle.prop("checked")) {
-    closeMobileMenu($menuToggle);
-  }
-}</code></pre>
-
-          <noscript>
-            <p class="code-example__noscript">
-              JavaScript is disabled — select the code above and copy it manually (Ctrl/Cmd + C).
-            </p>
-          </noscript>
-        </div>
-      </article>
+         <dl class="code-example__details">
+           <dt>Language</dt>
+           <dd><?= htmlspecialchars($ex['languageLabel']) ?></dd>
+           <dt>What it does</dt>
+           <dd><?= htmlspecialchars($ex['what']) ?></dd>
+           <dt>Why I used it</dt>
+           <dd><?= htmlspecialchars($ex['why']) ?></dd>
+         </dl>
+       </article>
+     <?php endforeach; ?>
 
       <div class="coding-examples__placeholder">
         <i class="fa-solid fa-code" aria-hidden="true"></i>
@@ -109,6 +89,7 @@ function handleEscapeKey(event, $menuToggle) {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
 
 <script src="../js/jquery-4.0.0.js"></script>
 <script type="module" src="../js/coding-examples.js"></script>
