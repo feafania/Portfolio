@@ -128,6 +128,36 @@
             border: 2px solid $color-valid;
             padding: 1rem;
             background: rgba($color-valid, .05);
+
+            > .contact__field,
+            > .contact__submit {
+                display: none;
+            }
+        }
+
+        .contact__status {
+            grid-column: 1 / -1;
+            padding: 0.9rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid transparent;
+            font-weight: 600;
+            line-height: 1.5;
+
+            &[hidden] {
+                display: none;
+            }
+
+            &--success {
+                color: $color-valid;
+                background: rgba($color-valid, .08);
+                border-color: $color-valid;
+            }
+
+            &--error {
+                color: $color-error;
+                background: rgba($color-error, .08);
+                border-color: $color-error;
+            }
         }
 
         input,
@@ -191,6 +221,14 @@
             grid-column: 1 / -1;
         }
 
+    }
+
+    &__hp {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
     }
 
     &__submit {
