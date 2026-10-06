@@ -9,7 +9,8 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-  <title>SCS Scheme</title>
+  <meta name="description" content="Learn about Tatsiana Kashko's experience with the Scion Coalition Scheme and her journey into professional web development.">
+  <title>Scion Coalition Scheme – Tatsiana Kashko</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
