@@ -1,0 +1,5 @@
+<FilesMatch "^(\.env|composer\.(json|lock)|package(-lock)?\.json)$">
+  Require all denied
+</FilesMatch>
+
+RedirectMatch 404 ^/(.*/)?(config|src|database|vendor|node_modules)(/|$)
