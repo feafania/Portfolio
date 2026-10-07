@@ -51,7 +51,8 @@
     </div>
   </section>
 
-  <section class="scs__section">
+  <section class="scs__section" aria-labelledby="scs-title">
+    <h2 id="scs-title" class="scs__title">Learning resources</h2>
     <div class="container">
 
       <div class="scs__cards">

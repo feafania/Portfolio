@@ -29,6 +29,10 @@
         background: rgba($color-primary, .04);
     }
 
+    &__title {
+        @extend %visually-hidden;
+    }
+
     &__cards {
         display: grid;
         gap: 2.5rem;
