@@ -3,4 +3,5 @@
   Require all denied
 </FilesMatch>
 
-RedirectMatch 404 ^/(.*/)?(config|src|database|vendor|node_modules)(/|$)
+RedirectMatch 404 ^/(config|vendor|node_modules)(/|$)
+RedirectMatch 404 ^/api/contact/(src|database)(/|$)
