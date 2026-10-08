@@ -6,14 +6,11 @@ export function initCardAnimation() {
   const $closeBtn = $(".card-zoom__close");
 
   $cards.on("click", function (e) {
-    if ($(e.target).closest(".view-project-btn").length) {
+    if ($(e.target).closest("a, button").length) {
       return;
     }
-    openCard($(this));
-  });
 
-  $(".view-project-btn").on("click", function (e) {
-    e.stopPropagation();
+    openCard($(this));
   });
 
   function openCard($card) {
@@ -23,7 +20,7 @@ export function initCardAnimation() {
     const $clone = $card.clone();
     $clone.addClass("project-card--zoomed");
 
-    $clone.find(".view-project-btn").on("click", function (e) {
+    $clone.find(".view-btn").on("click", function (e) {
       e.stopPropagation();
 
       if (!$card.data("external")) {
