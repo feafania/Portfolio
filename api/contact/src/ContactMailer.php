@@ -30,7 +30,6 @@ final class ContactMailer
         $mail->Timeout    = 10;
         $mail->CharSet    = 'UTF-8';
 
-        // From = ваш уласны адрас/дамен, адрас наведвальніка = Reply-To
         $mail->setFrom($_ENV['MAIL_FROM'], 'Portfolio Contact Form');
         $mail->addAddress($_ENV['MAIL_TO']);
         $mail->addReplyTo($d['email'], $fullName);
