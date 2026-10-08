@@ -91,7 +91,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
 
-<script src="../js/jquery-4.0.0.js"></script>
+<script src="../js/jquery-4.0.0.min.js"></script>
 <script type="module" src="../js/coding-examples.js"></script>
 
 </body>

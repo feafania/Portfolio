@@ -125,7 +125,7 @@
 
 </main>
 
-<script src="../js/jquery-4.0.0.js"></script>
+<script src="../js/jquery-4.0.0.min.js"></script>
 <script type="module" src="../js/scs-scheme.js"></script>
 
 </body>
