@@ -33,7 +33,7 @@
   animation: fade-in-up 0.6s ease forwards;
 }
 
-.btn:focus-visible, .back-to-top:focus-visible, .view-project-btn:focus-visible, .burger:focus-visible, .scs-card__link:focus-visible, .about__cta:focus-visible, .side-menu__branding a:focus-visible, a:focus-visible, button:focus-visible {
+.btn:focus-visible, .back-to-top:focus-visible, .view-btn:focus-visible, .burger:focus-visible, .scs-card__link:focus-visible, .about__cta:focus-visible, .side-menu__branding a:focus-visible, a:focus-visible, button:focus-visible {
   outline: 2px solid #2f9bd6;
   outline-offset: 4px;
 }
@@ -199,28 +199,27 @@ button {
   text-align: center;
   padding: 1.5rem;
   color: #f3f4f6;
-  background-color: #1b1f27;
-  background-image: url("../assets/images/hero-cold-geometry-mobile.png");
+  background-color: #2f9bd6;
+  background-image: url("../assets/images/hero-cold-geometry-mobile.webp");
   background-attachment: scroll;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-image 0.3s ease-in-out;
 }
 @media (min-width: 576px) {
   .hero {
-    background-image: url("../assets/images/hero-cold-geometry-desktop.png");
+    background-image: url("../assets/images/hero-cold-geometry-desktop.webp");
   }
 }
 @media (min-width: 992px) {
   .hero {
-    background-image: url("../assets/images/hero-cold-geometry-wide.png");
+    background-image: url("../assets/images/hero-cold-geometry-wide.webp");
     background-attachment: fixed;
   }
 }
 @media (min-width: 1200px) {
   .hero {
-    background-image: url("../assets/images/hero-cold-geometry-4k.png");
+    background-image: url("../assets/images/hero-cold-geometry-4k.webp");
   }
 }
 .hero::after {
@@ -1083,35 +1082,94 @@ footer {
   bottom: -4px;
 }
 
-.view-project-btn {
+.view-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.55rem 1.1rem 0.55rem 0;
+  justify-content: flex-start;
+  white-space: nowrap;
+  padding: 0.55rem 0;
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1;
   color: #111111;
   background-color: transparent;
-  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
   position: relative;
   z-index: 2;
 }
-.view-project-btn i {
+.view-btn__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: nowrap;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.view-btn__inner i {
   font-size: 1.15em;
   transition: transform 0.25s ease;
 }
-.view-project-btn:hover {
-  color: #2f9bd6;
-  border-color: #2f9bd6;
+.view-btn__inner .fa-arrow-right {
+  transition: transform 0.25s ease;
+}
+.view-btn:hover .view-btn__inner {
+  color: #6b7280;
   transform: translateY(-2px);
 }
-.view-project-btn:hover i {
-  transform: translateX(6px);
+.view-btn:hover .view-btn__inner .fa-arrow-right {
+  transform: translateX(3px);
 }
-.view-project-btn:active {
+.view-btn:hover .view-btn__inner .fa-github {
+  transform: translateX(-3px);
+}
+.view-btn:active .view-btn__inner {
   transform: translateY(0);
 }
+.view-btn--code i {
+  font-size: 1rem;
+}
+
+.project-card--zoomed .view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  color: #2f9bd6;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+@media (min-width: 576px) {
+  .project-card--zoomed .view-btn {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .project-card--zoomed .view-btn {
+    font-size: 1.2rem;
+  }
+}
+.project-card--zoomed .view-btn i {
+  font-size: 0.85rem;
+  transition: transform 0.25s ease;
+}
+@media (min-width: 576px) {
+  .project-card--zoomed .view-btn i {
+    font-size: 0.9rem;
+  }
+}
+.project-card--zoomed .view-btn:hover {
+  color: rgb(89.6024096386, 175.4819277108, 222.3975903614);
+}
+.project-card--zoomed .view-btn:hover i {
+  transform: translateX(4px);
+}
+
+.fa-arrow-right,
+.fa-github {
+  flex-shrink: 0;
+}
+
 .project-card {
   position: relative;
   overflow: visible;
@@ -1121,7 +1179,7 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(27, 31, 39, 0.35);
+  background: rgba(27, 31, 39, 0.1);
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
@@ -1176,6 +1234,11 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+}
+.project-card .project-card__links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .project-card__description {
   margin: 0;
@@ -1454,41 +1517,11 @@ footer {
 .card-zoom .project-card--zoomed .project-card__tech li {
   font-size: 0.8rem;
 }
-.card-zoom .project-card--zoomed .view-project-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #2f9bd6;
-  text-decoration: none;
-  margin-top: 0.5rem;
-  transition: gap 0.25s ease, color 0.25s ease;
-}
-@media (min-width: 576px) {
-  .card-zoom .project-card--zoomed .view-project-btn {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 768px) {
-  .card-zoom .project-card--zoomed .view-project-btn {
-    font-size: 1.2rem;
-  }
-}
-.card-zoom .project-card--zoomed .view-project-btn i {
-  font-size: 0.85rem;
-  transition: transform 0.25s ease;
-}
-@media (min-width: 576px) {
-  .card-zoom .project-card--zoomed .view-project-btn i {
-    font-size: 0.9rem;
-  }
-}
-.card-zoom .project-card--zoomed .view-project-btn:hover {
-  color: rgb(89.6024096386, 175.4819277108, 222.3975903614);
-}
-.card-zoom .project-card--zoomed .view-project-btn:hover i {
-  transform: translateX(4px);
+.card-zoom .project-card--zoomed .project-card__links {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 @media (max-height: 750px), (orientation: landscape) and (max-height: 600px) {
   .card-zoom .project-card--zoomed {

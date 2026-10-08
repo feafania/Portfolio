@@ -234,41 +234,11 @@
             font-size: .8rem;
         }
 
-        .view-project-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: $color-primary;
-            text-decoration: none;
-            margin-top: 0.5rem;
-            transition: gap $transition-base, color $transition-base;
-
-            @include respond-to(sm) {
-                font-size: 1rem;
-            }
-
-            @include respond-to(md) {
-                font-size: 1.2rem;
-            }
-
-            i {
-                font-size: 0.85rem;
-                transition: transform $transition-base;
-
-                @include respond-to(sm) {
-                    font-size: 0.9rem;
-                }
-            }
-
-            &:hover {
-                color: color.adjust($color-primary, $lightness: 10%);
-
-                i {
-                    transform: translateX(4px);
-                }
-            }
+        .project-card__links {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
         @media (max-height: 750px), (orientation: landscape) and (max-height: 600px) {

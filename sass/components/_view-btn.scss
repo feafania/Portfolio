@@ -1,0 +1,118 @@
+@use "../abstracts" as *;
+@use "sass:color";
+@use "../states" as *;
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+
+    padding: .55rem 0;
+
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1;
+
+    color: $card-view-btn;
+    background-color: transparent;
+    text-decoration: none;
+
+    position: relative;
+    z-index: $z-view-project;
+
+    &:focus-visible {
+        @extend %focus-ring;
+    }
+
+    &__inner {
+        display: inline-flex;
+        align-items: center;
+        gap: .55rem;
+        flex-wrap: nowrap;
+
+        transition:
+                color $transition-base,
+                transform $transition-base;
+
+        i {
+            font-size: 1.15em;
+            transition: transform $transition-base;
+        }
+
+        .fa-arrow-right {
+            transition: transform $transition-base;
+        }
+    }
+
+    &:hover {
+        .view-btn__inner {
+            color: $color-text-light;
+            transform: translateY(-2px);
+
+            .fa-arrow-right {
+                transform: translateX(3px);
+            }
+
+            .fa-github {
+                transform: translateX(-3px);
+            }
+        }
+    }
+
+    &:active {
+        .view-btn__inner {
+            transform: translateY(0);
+        }
+    }
+
+    &--code {
+        i {
+            font-size: 1rem;
+        }
+    }
+}
+
+.project-card--zoomed {
+    .view-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        margin-top: 0.5rem;
+        color: $color-primary;
+        transition: gap $transition-base, color $transition-base;
+
+        @include respond-to(sm) {
+            font-size: 1rem;
+        }
+
+        @include respond-to(md) {
+            font-size: 1.2rem;
+        }
+
+        i {
+            font-size: 0.85rem;
+            transition: transform $transition-base;
+
+            @include respond-to(sm) {
+                font-size: 0.9rem;
+            }
+        }
+
+        &:hover {
+            color: color.adjust($color-primary, $lightness: 10%);
+
+            i {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+.fa-arrow-right,
+.fa-github {
+    flex-shrink: 0;
+}

@@ -24,6 +24,26 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
   <link rel="manifest" href="assets/icons/site.webmanifest">
+
+  <link rel="preload"
+        as="image"
+        href="assets/images/hero-cold-geometry-mobile.webp"
+        media="(max-width: 575px)">
+
+  <link rel="preload"
+        as="image"
+        href="assets/images/hero-cold-geometry-desktop.webp"
+        media="(min-width: 576px) and (max-width: 991px)">
+
+  <link rel="preload"
+        as="image"
+        href="assets/images/hero-cold-geometry-wide.webp"
+        media="(min-width: 992px) and (max-width: 1199px)">
+
+  <link rel="preload"
+        as="image"
+        href="assets/images/hero-cold-geometry-4k.webp"
+        media="(min-width: 1200px)">
 </head>
 
 <body id="top">
@@ -72,12 +92,28 @@
                  </ul>
                <?php endif; ?>
 
-               <a href="<?= htmlspecialchars($project['url'] ?? '#') ?>"
-                  class="view-project-btn"
-                  <?= $external ? 'target="_blank" rel="noopener noreferrer"' : '' ?>>
-                 <span>View Project</span>
-                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-               </a>
+              <div class="project-card__links">
+                  <a href="<?= htmlspecialchars($project['url'] ?? '#') ?>"
+                     class="view-btn"
+                     <?= $external ? 'target="_blank" rel="noopener noreferrer"' : '' ?>>
+                      <span class="view-btn__inner">
+                          <span>View Project</span>
+                          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                      </span>
+                  </a>
+
+                  <?php if (!empty($project['github'])): ?>
+                      <a href="<?= htmlspecialchars($project['github']) ?>"
+                         class="view-btn view-btn--code"
+                         target="_blank"
+                         rel="noopener noreferrer">
+                          <span class="view-btn__inner">
+                              <i class="fa-brands fa-github" aria-hidden="true"></i>
+                              <span>View Code</span>
+                          </span>
+                      </a>
+                  <?php endif; ?>
+              </div>
              </div>
            </div>
          </article>
@@ -186,7 +222,7 @@
   </div>
 </div>
 
-<script src="js/jquery-4.0.0.js"></script>
+<script src="js/jquery-4.0.0.min.js"></script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
