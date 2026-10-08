@@ -11,25 +11,24 @@
     text-align: center;
     padding: $spacer * 1.5;
     color: $color-hero;
-    background-color: $color-dark;
-    background-image: url("#{$assets-path}images/hero-cold-geometry-mobile.png");
+    background-color: $color-primary;
+    background-image: url("#{$assets-path}images/hero-cold-geometry-mobile.webp");
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 0.3s ease-in-out;
 
     @include respond-to(sm) {
-        background-image: url("#{$assets-path}images/hero-cold-geometry-desktop.png");
+        background-image: url("#{$assets-path}images/hero-cold-geometry-desktop.webp");
     }
 
     @include respond-to(lg) {
-        background-image: url("#{$assets-path}images/hero-cold-geometry-wide.png");
-        background-attachment: fixed;
+        background-image: url("#{$assets-path}images/hero-cold-geometry-wide.webp");
+        background-attachment: fixed; // on lower screen does not work correctly
     }
 
     @include respond-to(xl) {
-        background-image: url("#{$assets-path}images/hero-cold-geometry-4k.png");
+        background-image: url("#{$assets-path}images/hero-cold-geometry-4k.webp");
     }
 
     &::after {
